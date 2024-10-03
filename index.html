@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="dist/output.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100">
+
+
+    <!-- Navbar -->
+<nav class="bg-blue-950 p-4">
+    <div class="container mx-auto flex justify-end items-center">
+        <div class="flex space-x-6 text-gray-300">
+            <a href="#" class="text-white underline underline-offset-8 font-bold">Home</a>
+            <a href="#"
+                class="hover:text-white hover:underline hover:underline-offset-8 hover:decoration-white">Machines</a>
+            <a href="#"
+                class="hover:text-white hover:underline hover:underline-offset-8 hover:decoration-white">Orders</a>
+            <a href="#"
+                class="hover:text-white hover:underline hover:underline-offset-8 hover:decoration-white">Appointments</a>
+        </div>
+        <div class="flex space-x-4 ml-4"> <!-- Added ml-4 for spacing between links and buttons -->
+            <button class="bg-white text-blue-900 rounded-full p-2">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5">
+                    <path fill-rule="evenodd"
+                        d="M1 11.27c0-.246.033-.492.099-.73l1.523-5.521A2.75 2.75 0 0 1 5.273 3h9.454a2.75 2.75 0 0 1 2.651 2.019l1.523 5.52c.066.239.099.485.099.732V15a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-3.73Zm3.068-5.852A1.25 1.25 0 0 1 5.273 4.5h9.454a1.25 1.25 0 0 1 1.205.918l1.523 5.52c.006.02.01.041.015.062H14a1 1 0 0 0-.86.49l-.606 1.02a1 1 0 0 1-.86.49H8.236a1 1 0 0 1-.894-.553l-.448-.894A1 1 0 0 0 6 11H2.53l.015-.062 1.523-5.52Z"
+                        clip-rule="evenodd" />
+                </svg>
+            </button>
+            <button class="text-white rounded-full">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                </svg>
+            </button>
+        </div>
+    </div>
+</nav>
+
+   
+    <!-- Main Section -->
+    <div class="container mx-auto p-6">
+        <!-- Alarms and Machine Status -->
+        <div class="grid lg:grid-cols-3 gap-6 mb-8">
+            <!-- Alarms -->
+            <div class="bg-white p-6 rounded-lg shadow-lg col-span-1">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-xl font-semibold">All Alarms</h2>
+                    <button class="bg-blue-900 text-white px-4 py-1 rounded-lg">Create Alarm</button>
+                </div>
+                <div class="space-y-2">
+                    <!-- Alarm 1 -->
+                    <div class="flex justify-between items-center text-red-600">
+                        <span>Venturi Dryer Alarm</span>
+                        <span>2050 hrs</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-1 mb-2">
+                        <div class="bg-red-600 h-1 rounded-full w-3/4"></div>
+                    </div>
+
+                    <!-- Alarm 2 -->
+                    <div class="flex justify-between items-center text-red-600">
+                        <span>Double Belt Cooling System Alarm</span>
+                        <span>2050 hrs</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-1 mb-2">
+                        <div class="bg-red-600 h-1 rounded-full w-2/4"></div>
+                    </div>
+
+                    <!-- Alarm 3 -->
+                    <div class="flex justify-between items-center text-red-600">
+                        <span>Supercooling System Alarm</span>
+                        <span>2050 hrs</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-1 mb-2">
+                        <div class="bg-red-600 h-1 rounded-full w-1/4"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Machines under Alarm -->
+            <div class="bg-white p-6 rounded-lg shadow-lg col-span-2">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-xl font-semibold">Machines under alarm</h2>
+                    <button class="bg-blue-900 text-white px-4 py-1 rounded-lg">Add Machine</button>
+                </div>
+                <div class="grid grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="text-lg font-semibold mb-2">Supercooling System</h3>
+                        <p class="text-gray-500">Branch: KLM Branch</p>
+                        <p class="text-gray-500">Location: J.K. Building 2.0</p>
+                        <p class="text-gray-500">Running Time: 340h 23m 20s</p>
+                        <p class="text-red-600">Down Time: 3h 15m 10s</p>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold mb-2">Parameters</h3>
+                        <div class="space-y-2">
+                            <div class="flex justify-between">
+                                <span>Temperature</span>
+                                <span>105°C</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Pressure</span>
+                                <span>400 Pa</span>
+                            </div>
+                            <!-- Add more parameters as per need -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Upcoming Orders -->
+        <div class="bg-white p-6 rounded-lg shadow-lg mb-8">
+            <h2 class="text-xl font-semibold mb-4">Upcoming Orders</h2>
+            <div class="grid lg:grid-cols-2 gap-6">
+                <!-- Order 1 -->
+                <div class="p-4 border rounded-lg bg-gray-50">
+                    <div class="flex justify-between items-center mb-2">
+                        <h3 class="text-lg font-semibold">Product Pump</h3>
+                        <span class="text-green-600">Shipped</span>
+                    </div>
+                    <p class="text-gray-500 mb-2">Pressure 300 Pa</p>
+                    <div class="flex justify-between items-center">
+                        <span>Order Placed</span>
+                        <span>200 000 Kr</span>
+                    </div>
+                </div>
+                <!-- Order 2 -->
+                <div class="p-4 border rounded-lg bg-gray-50">
+                    <div class="flex justify-between items-center mb-2">
+                        <h3 class="text-lg font-semibold">Exhaust</h3>
+                        <span class="text-green-600">Shipped</span>
+                    </div>
+                    <p class="text-gray-500 mb-2">Pressure 300 Pa</p>
+                    <div class="flex justify-between items-center">
+                        <span>Order Placed</span>
+                        <span>136 898 Kr</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Appointments -->
+        <div class="bg-white p-6 rounded-lg shadow-lg">
+            <h2 class="text-xl font-semibold mb-4">Appointments</h2>
+            <div class="grid lg:grid-cols-3 gap-6">
+                <!-- Appointment 1 -->
+                <div class="p-4 border rounded-lg bg-gray-50">
+                    <div class="flex justify-between items-center mb-2">
+                        <h3 class="text-lg font-semibold">Venturi Dryer</h3>
+                        <span>30h</span>
+                    </div>
+                    <p class="text-gray-500">Appointment: Feb 28, 2024</p>
+                    <p class="text-gray-500">Time: 10:30 hrs</p>
+                </div>
+                <!-- Appointment 2 -->
+                <div class="p-4 border rounded-lg bg-gray-50">
+                    <div class="flex justify-between items-center mb-2">
+                        <h3 class="text-lg font-semibold">Double Belt</h3>
+                        <span>2h</span>
+                    </div>
+                    <p class="text-gray-500">Appointment: Mar 01, 2024</p>
+                    <p class="text-gray-500">Time: 10:30 hrs</p>
+                </div>
+                <!-- Appointment 3 -->
+                <div class="p-4 border rounded-lg bg-gray-50">
+                    <div class="flex justify-between items-center mb-2">
+                        <h3 class="text-lg font-semibold">Supercooling System</h3>
+                        <span>30h</span>
+                    </div>
+                    <p class="text-gray-500">Appointment: Feb 28, 2024</p>
+                    <p class="text-gray-500">Time: 10:30 hrs</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-blue-900 text-white p-4 mt-8">
+        <div class="container mx-auto text-center">
+            <p>v3.4.0.1 | Last Released: Feb 10, 2024 13:24</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
