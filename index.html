@@ -9,7 +9,7 @@
     <link href="dist/output.css" rel="stylesheet">
 </head>
 
-<body class="bg-gray-100">
+<body class="bg-white-100">
 
 
     <!-- Navbar -->
@@ -45,81 +45,237 @@
 
    
     <!-- Main Section -->
-    <div class="container mx-auto p-6">
+    <div class="container mx-3 w-full p-6">
         <!-- Alarms and Machine Status -->
-        <div class="grid lg:grid-cols-3 gap-6 mb-8">
+        <div class="bg-white grid grid-cols-3 gap-6 mb-8 ">
             <!-- Alarms -->
-            <div class="bg-white p-6 rounded-lg shadow-lg col-span-1">
+            
+                <div class="col-span-1">
                 <div class="flex justify-between items-center mb-4">
-                    <h2 class="text-xl font-semibold">All Alarms</h2>
-                    <button class="bg-blue-900 text-white px-4 py-1 rounded-lg">Create Alarm</button>
+                    <div class="flex justify-center space-x-1 items-center">
+                    <h2 class="text-blue-950 text-xl font-bold">All Alarms</h2>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="color: #FF3334;" class="size-6">
+                            <path fill-rule="evenodd"
+                                d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12ZM12 8.25a.75.75 0 0 1 .75.75v3.75a.75.75 0 0 1-1.5 0V9a.75.75 0 0 1 .75-.75Zm0 8.25a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z"
+                                clip-rule="evenodd" />
+                        </svg>
+                        <h3 style="color:#FF3334">
+                            1 / 4
+                        </h3>
+                    </div>
+                    <div class="flex space-x-1">
+                    <button 
+                        class="inline-flex justify-inbetween items-center p-1 px-3 text-xs rounded-md border-2 border-blue-950  text-sm font-medium text-blue-950 hover:bg-gray-50 ">Today  
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                            class="size-5 ">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="m9 12.75 3 3m0 0 3-3m-3 3v-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                        </svg>
+                    </button>
+                    <button class="bg-blue-950 justify-center text-xs font-bold text-center items-center text-white px-2 p-3 rounded-md">Create Alarm</button>
+                    </div>
                 </div>
-                <div class="space-y-2">
-                    <!-- Alarm 1 -->
-                    <div class="flex justify-between items-center text-red-600">
-                        <span>Venturi Dryer Alarm</span>
-                        <span>2050 hrs</span>
+            
+            
+            <div class="bg-gray-100 p-6 rounded-lg shadow-lg ">
+                <div class="flex j items-center mb-2">
+                    <span class=" text-blue-950 text-xl font-semibold">
+                        Venturi Dryer Alarm</span>
+                    <span class="text-yellow-600">Overall Temp.>100 degree Celcius</span>
+                </div>
+                <div class="flex w-full h-1.5 bg-gray-200 rounded-full overflow-hidden ">
+                    <div class="flex flex-col justify-center overflow-hidden bg-green-500 text-xs text-white text-center whitespace-nowrap"
+                        style="width: 22%" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="flex flex-col justify-center overflow-hidden  bg-red-600 text-xs text-white text-center whitespace-nowrap"
+                        style="width: 23%" role="progressbar" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="flex flex-col justify-center overflow-hidden bg-green-500 text-xs text-white text-center whitespace-nowrap"
+                        style="width: 32%" role="progressbar" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>               
+                    <!-- Time Markers -->
+                    <div class="flex  w-full text-sm">
+                        <span class="text-black text-xs">0000 hrs</span>
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        <span class="text-black text-xs">0830 hrs</span>
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        <span class="text-black text-xs">1030 hrs</span>   
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        <span class="text-black text-xs">2030 hrs</span>
+                        &nbsp&nbsp&nbsp
+                        <span class="text-black text-xs">2359 hrs</span>
                     </div>
-                    <div class="w-full bg-gray-200 rounded-full h-1 mb-2">
-                        <div class="bg-red-600 h-1 rounded-full w-3/4"></div>
-                    </div>
-
                     <!-- Alarm 2 -->
-                    <div class="flex justify-between items-center text-red-600">
-                        <span>Double Belt Cooling System Alarm</span>
-                        <span>2050 hrs</span>
-                    </div>
-                    <div class="w-full bg-gray-200 rounded-full h-1 mb-2">
-                        <div class="bg-red-600 h-1 rounded-full w-2/4"></div>
-                    </div>
+                                    <div class="flex justify-between items-center mb-2 ">
+                                        <span class=" text-blue-950 text-xl font-semibold" >
+                                            Double Belt Cooling System Alarm</span>
+                                    </div>
+                                    <div class="flex w-full h-1.5 bg-gray-200 rounded-full overflow-hidden ">
+                                        <div class="flex flex-col justify-center overflow-hidden bg-green-500 text-xs text-white text-center whitespace-nowrap"
+                                            style="width: 76%" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>                        
+                                    </div>
+                                    <!-- Time Markers -->
+                                    <div class="flex justify-between w-full text-sm">
+                                        <span class="text-black text-xs">0000 hrs</span>
+                                        <span class="text-gray-50 text-xs">0830 hrs</span>
+                                        <span class="text-gray-50 text-xs">000000000000000000000000000000</span>
+                                        <span class="text-black text-xs">2030 hrs</span>
+                                        <span class="text-black text-xs">2359 hrs</span>
+                                    </div>
 
                     <!-- Alarm 3 -->
-                    <div class="flex justify-between items-center text-red-600">
-                        <span>Supercooling System Alarm</span>
-                        <span>2050 hrs</span>
-                    </div>
-                    <div class="w-full bg-gray-200 rounded-full h-1 mb-2">
-                        <div class="bg-red-600 h-1 rounded-full w-1/4"></div>
-                    </div>
-                </div>
-            </div>
+                                    <div class="flex justify-between items-center mb-2 ">
+                                        <span style="color: #FF3334;" class=" text-xl font-semibold">
+                                            Supercooling System Alarm</span>
+                                    </div>
+                                    <div class="flex w-full h-1.5 bg-gray-200 rounded-full overflow-hidden ">
+                                        <div class="flex flex-col justify-center overflow-hidden bg-green-500 text-xs text-white text-center whitespace-nowrap"
+                                            style="width: 76%" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <!-- Time Markers -->
+                                    <div class="flex justify-between w-full text-sm">
+                                        <span class="text-black text-xs">0000 hrs</span>
+                                        <span class="text-gray-50 text-xs">0839 hrs</span>
+                                        <span class="text-gray-50 text-xs">000000000000000000000000000000</span>
+                                        <span class="text-black text-xs">2030 hrs</span>
+                                        <span class="text-black text-xs">2359 hrs</span>
+                                    </div>
 
+                    <!--Alarm 4 -->
+                                    <div class="flex justify-between items-center mb-2">
+                                        <span class=" text-blue-950 text-xl font-semibold">
+                                            Double Belt Cooling System Alarm</span>
+                                    </div>
+                                    <div class="flex w-full h-1.5 bg-gray-200 rounded-full overflow-hidden ">
+                                        <div class="flex flex-col justify-center overflow-hidden bg-green-500 text-xs text-white text-center whitespace-nowrap"
+                                            style="width: 76%" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <!-- Time Markers -->
+                                    <div class="flex justify-between w-full text-sm">
+                                        <span class="text-black text-xs">0000 hrs</span>
+                                        <span class="text-gray-50 text-xs">0830 hrs</span>
+                                        <span class="text-gray-50 text-xs">000000000000000000000000000000</span>
+                                        <span class="text-black text-xs">2030 hrs</span>
+                                        <span class="text-black text-xs">2359 hrs</span>
+                                    </div>
+                                </div>
+            </div>
+        
             <!-- Machines under Alarm -->
-            <div class="bg-white p-6 rounded-lg shadow-lg col-span-2">
-                <div class="flex justify-between items-center mb-4">
-                    <h2 class="text-xl font-semibold">Machines under alarm</h2>
-                    <button class="bg-blue-900 text-white px-4 py-1 rounded-lg">Add Machine</button>
-                </div>
-                <div class="grid grid-cols-2 gap-6">
-                    <div>
-                        <h3 class="text-lg font-semibold mb-2">Supercooling System</h3>
-                        <p class="text-gray-500">Branch: KLM Branch</p>
-                        <p class="text-gray-500">Location: J.K. Building 2.0</p>
-                        <p class="text-gray-500">Running Time: 340h 23m 20s</p>
-                        <p class="text-red-600">Down Time: 3h 15m 10s</p>
-                    </div>
-                    <div>
-                        <h3 class="text-lg font-semibold mb-2">Parameters</h3>
-                        <div class="space-y-2">
-                            <div class="flex justify-between">
-                                <span>Temperature</span>
-                                <span>105°C</span>
+<div class="bg-green-500 col-span-2">
+    <div class="flex bg-white  justify-between items-center mb-4">
+        <div class="flex justify-center space-x-1 items-center">
+            <h2 class="text-blue-950 text-xl font-bold">Machines under alarm</h2>
+        </div>
+        <div class="flex space-x-1">
+           
+            <button
+                class="bg-blue-950 justify-center text-xs font-bold text-center items-center p-3 px-4 text-white px-2 p-1 rounded-md">
+            Add Machines</button>
+        </div>
+    </div>
+            <div class="bg-gray-100 p-5 rounded-lg shadow-lg ">
+                    <div class=" flex gap-1 mb-4">
+
+                        <div class="  ">
+                            <img src="./images/img1.jpg" alt="image1" class="h-28 w-48 object-cover rounded-md border-2 border-blue-950">
+                        </div>
+                        <div class=" p-1 rounded-lg shadow-lg flex-1">
+                            <div class="flex justify-between ">
+                                <!-- Left side text -->
+                                <div class=" text-left text-3xl font-bold items-center justify-evenly ">
+                                    <p style="color: #FF3334;">Supercooling System</p>
+                                </div>
+                            
+                                <!-- Right side text -->
+                                <div class="text-right">
+                                    <p class="text-xs  text-blue-950">Installation Date</p>
+                                    <span class="text-blue-950 text-sm">Feb 20, 2024 1324 hrs</span>
+                                </div>
                             </div>
-                            <div class="flex justify-between">
-                                <span>Pressure</span>
-                                <span>400 Pa</span>
-                            </div>
-                            <!-- Add more parameters as per need -->
+                            <div class="flex  ">
+                                <!-- Four equal divs -->
+                                <div class="flex-1 text-blue-950 m-1 p-1 rounded-md text-start">
+                                    <p class="text-sm ">Branch</p>
+                                    <p class="text-lg   ">KLM Branch</p>
+                                </div>
+                                <div class="flex-1 text-blue-950 m-1 p-1 rounded-md text-start">
+                                    <p class="text-sm ">Location</p>
+                                    <p class="text-lg ">J.K. Building 2.0</p>
+                                </div>
+                                <div class="flex-1 text-blue-950 m-1 p-1 rounded-md text-start">
+                                    <p class="text-sm ">Running time</p>
+                                    <p class="text-lg  font-bold">340 h 23 m 20 s</p>
+                                </div>
+                                <div  class="flex-1  m-1 p-1 rounded-md text-start">
+                                    <p style="color: #FF3334;" class="text-sm ">Down time</p>
+                                    <p style="color: #FF3334;" class="text-lg  font-bold">3 h 15 m 10 s</p>
+                                </div>
+                            </div>                  
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
 
+                    <!-----------------------Supercooling system div 2--------------------->
+                                    <div class="grid  grid-cols-3 bg-red-500 gap-4 p-4">
+                                     
+                                            <div class="bg-gray-100 col-span-1 grid grid-cols-3 gap-0.5    border-2 border-blue-950 rounded-md">
+                                                <!-- Nine equal divs -->
+                                                <div style="color: #FF3334;" class=" p-1 rounded-md text-start w-28 h-15">
+                                                    <p style="line-height: 1.1;"class="text-sm ">Temp</p>
+                                                    <p style="line-height: 1.1;"class="text-lg font-bold">105 C</p>
+                                                    <p style="line-height: 1.1;"class="text-sm">Third Line</p>
+                                                </div>
+                                                <div class="text-blue-950 p-1 rounded-md text-start w-28 h-15">
+                                                    <p style="line-height: 1.1;"class="text-sm">Pressure</p>
+                                                    <p style="line-height: 1.1;"class="text-lg font-bold">400 Pa</p>
+                                                    <p style="line-height: 1.1;"class="text-sm">Third Line</p>
+                                                </div>
+                                                <div class="text-blue-950 p-1 rounded-md text-start w-28 h-15">
+                                                    <p style="line-height: 1.1;"class="text-sm">Param 2</p>
+                                                    <p style="line-height: 1.1;"class="text-lg font-bold">390 Unit</p>
+                                                    <p style="line-height: 1.1;"class="text-sm">Third Line</p>
+                                                </div>
+                                                <div class="text-blue-950 p-1 rounded-md text-start w-28 h-15">
+                                                    <p style="line-height: 1.1;"class="text-sm">Param 3</p>
+                                                    <p style="line-height: 1.1;"class="text-lg font-bold">690 Unit</p>
+                                                    <p style="line-height: 1.1;"class="text-sm">Third Line</p>
+                                                </div>
+                                                <div style="color: #FFB800;" class=" p-1 rounded-md text-start w-28 h-15">
+                                                    <p style="line-height: 1.1;"class="text-sm">Param 4</p>
+                                                    <p style="line-height: 1.1;"class="text-lg font-bold">330 Unit</p>
+                                                    <p style="line-height: 1.1;"class="text-sm">Third Line</p>
+                                                </div>
+                                                <div class="text-blue-950 p-1 rounded-md text-start w-28 h-15">
+                                                    <p style="line-height: 1.1;"class="text-sm">Param 5</p>
+                                                    <p style="line-height: 1.1;"class="text-lg font-bold">621 Unit</p>
+                                                    <p style="line-height: 1.1;"class="text-sm">Third Line</p>
+                                                </div>
+                                                <div class="text-blue-950 p-1 rounded-md text-start w-28 h-15">
+                                                    <p style="line-height: 1.1;"class="text-sm">Param 6</p>
+                                                    <p style="line-height: 1.1;"class="text-lg font-bold">290 Unit</p>
+                                                    <p style="line-height: 1.1;"class="text-sm">Third Line</p>
+                                                </div>
+                                                <div style="color: #FF3334;" class=" p-1 rounded-md text-start w-28 h-15">
+                                                    <p style="line-height: 1.1;"class="text-sm">Param 7</p>
+                                                    <p style="line-height: 1.1;"class="text-lg font-bold">90 Unit</p>
+                                                    <p style="line-height: 1.1;"class="text-sm">Third Line</p>
+                                                </div>
+                                                <div class="text-blue-950 p-1 rounded-md text-start w-28 h-15 ">
+                                                    <p style="line-height: 1.1;"class="text-sm">Param 8</p>
+                                                    <p style="line-height: 1.1;"class="text-lg font-bold">390 Unit</p>
+                                                    <p style="line-height: 1.1;"class="text-sm">Third Line</p>
+                                                </div>
+                                            </div>
+                                                <div class="col-span-2 bg-gray-100 p-6  shadow-lg border border-blue-950 rounded-md">
+                                                    <h1>HElloowww</h1>
+                                                </div>
+                                    </div>
+            </div>                    
+        </div>
+</div>
+        
         <!-- Upcoming Orders -->
         <div class="bg-white p-6 rounded-lg shadow-lg mb-8">
             <h2 class="text-xl font-semibold mb-4">Upcoming Orders</h2>
-            <div class="grid lg:grid-cols-2 gap-6">
+            <div class="grid grid-rows-2 gap-6">
                 <!-- Order 1 -->
                 <div class="p-4 border rounded-lg bg-gray-50">
                     <div class="flex justify-between items-center mb-2">
@@ -146,49 +302,18 @@
                 </div>
             </div>
         </div>
-
-        <!-- Appointments -->
-        <div class="bg-white p-6 rounded-lg shadow-lg">
-            <h2 class="text-xl font-semibold mb-4">Appointments</h2>
-            <div class="grid lg:grid-cols-3 gap-6">
-                <!-- Appointment 1 -->
-                <div class="p-4 border rounded-lg bg-gray-50">
-                    <div class="flex justify-between items-center mb-2">
-                        <h3 class="text-lg font-semibold">Venturi Dryer</h3>
-                        <span>30h</span>
-                    </div>
-                    <p class="text-gray-500">Appointment: Feb 28, 2024</p>
-                    <p class="text-gray-500">Time: 10:30 hrs</p>
-                </div>
-                <!-- Appointment 2 -->
-                <div class="p-4 border rounded-lg bg-gray-50">
-                    <div class="flex justify-between items-center mb-2">
-                        <h3 class="text-lg font-semibold">Double Belt</h3>
-                        <span>2h</span>
-                    </div>
-                    <p class="text-gray-500">Appointment: Mar 01, 2024</p>
-                    <p class="text-gray-500">Time: 10:30 hrs</p>
-                </div>
-                <!-- Appointment 3 -->
-                <div class="p-4 border rounded-lg bg-gray-50">
-                    <div class="flex justify-between items-center mb-2">
-                        <h3 class="text-lg font-semibold">Supercooling System</h3>
-                        <span>30h</span>
-                    </div>
-                    <p class="text-gray-500">Appointment: Feb 28, 2024</p>
-                    <p class="text-gray-500">Time: 10:30 hrs</p>
-                </div>
-            </div>
-        </div>
-    </div>
+        
 
     <!-- Footer -->
-    <footer class="bg-blue-900 text-white p-4 mt-8">
-        <div class="container mx-auto text-center">
-            <p>v3.4.0.1 | Last Released: Feb 10, 2024 13:24</p>
+    <footer class="bg-blue-950 text-white p-4 mt-8">
+        <div class="container mx-auto text-right">
+            <p class="font-bold">v3.4.0.1</p> 
+            <p>Last Released: Feb 10, 2024 13:24</p>
         </div>
     </footer>
 
 </body>
-
+    <!-- Link to external JavaScript file -->
+    <script src="main.js"></script>
+    <script src="toggle.js"></script>
 </html>
