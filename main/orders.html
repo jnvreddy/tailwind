@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Likith</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="dist/outputorders.css" rel="stylesheet">
+
+</head>
+
+<body class="bg-white">
+    <!-- Navbar -->
+    <nav class="bg-[#0F1C40] p-4">
+        <div class="container mx-auto flex justify-end items-center">
+            <div class="flex space-x-6 text-gray-300">
+                <a href="index.html"
+                    class=" hover:text-white hover:underline hover:underline-offset-8 hover:decoration-whit">Home</a>
+                <a href="machines.html"
+                    class="hover:text-white hover:underline hover:underline-offset-8 hover:decoration-white">Machines</a>
+                <a href="orders.html"
+                    class="hover:text-white  hover:underline-offset-8 hover:decoration-white text-white underline underline-offset-8 font-bold">Orders</a>
+                <a href="appointments.html"
+                    class="hover:text-white hover:underline hover:underline-offset-8 hover:decoration-white">Appointments</a>
+            </div>
+            <div class="flex space-x-4 ml-4"> <!-- Added ml-4 for spacing between links and buttons -->
+                <button class="bg-white text-blue-900 rounded-full p-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5">
+                        <path fill-rule="evenodd"
+                            d="M1 11.27c0-.246.033-.492.099-.73l1.523-5.521A2.75 2.75 0 0 1 5.273 3h9.454a2.75 2.75 0 0 1 2.651 2.019l1.523 5.52c.066.239.099.485.099.732V15a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-3.73Zm3.068-5.852A1.25 1.25 0 0 1 5.273 4.5h9.454a1.25 1.25 0 0 1 1.205.918l1.523 5.52c.006.02.01.041.015.062H14a1 1 0 0 0-.86.49l-.606 1.02a1 1 0 0 1-.86.49H8.236a1 1 0 0 1-.894-.553l-.448-.894A1 1 0 0 0 6 11H2.53l.015-.062 1.523-5.52Z"
+                            clip-rule="evenodd" />
+                    </svg>
+                </button>
+                <button class="text-white rounded-full">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Section -->
+    <div class="container mx-auto p-4 sm:p-8 mt-4">
+        <!-- Buttons and Dropdowns -->
+        <div class="flex flex-col sm:flex-row justify-between mb-8 space-y-4 sm:space-y-0">
+            <div class="flex space-x-4">
+                <button id="active-btn" class="px-5 py-2.5 bg-[#0F1C40] font-bold rounded-lg text-sm border text-white"
+                    onclick="showProducts('active')">Active Orders</button>
+                <button id="delivered-btn"
+                    class="px-5 py-2.5 font-medium font-bold rounded-lg text-sm border border-blue-700"
+                    onclick="showProducts('delivered')">Delivered Orders</button>
+                <button id="canceled-btn"
+                    class="px-5 py-2.5 font-medium font-bold rounded-lg text-sm border border-blue-700"
+                    onclick="showProducts('canceled')">Canceled Orders</button>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <select class="border p-2 rounded">
+                    <option value="" disabled selected>Date Filter</option>
+                    <!-- Add your date options here -->
+                    <option value="2023-01-01">January 1, 2023</option>
+                    <option value="2023-01-02">January 2, 2023</option>
+                    <!-- More options -->
+                </select>
+                <select class="border p-2 rounded">
+                    <option value="" disabled selected>Machine Filter</option>
+                    <!-- Add your machine options here -->
+                    <option value="machine1">Product Pump</option>
+                    <option value="machine2">Machine 2</option>
+                    <!-- More options -->
+                </select>
+                <select class="border p-2 rounded">
+                    <option value="" disabled selected>Department Name</option>
+                    <!-- Add your department options here -->
+                    <option value="department1">Department 1</option>
+                    <option value="department2">Department 2</option>
+                    <!-- More options -->
+                </select>
+            </div>
+        </div>
+
+        <!-- Product List and Slideshow -->
+        <div class="flex flex-col lg:flex-row">
+
+
+            <div id="product-list" class="lg:w-3/5 border-r border-gray-300 pr-4 mb-4 lg:mb-0">
+                <!-- Product items will be inserted here -->
+            </div>
+
+            <div class="w-4/5 pl-8">
+
+                <div class="max-w-5xl mx-auto p-8 px-5">
+                    <div class="bg-white shadow-md rounded-lg p-6">
+                        <!-- Progress Bar -->
+                        <div class="flex justify-between items-center">
+
+                            <div class="w-full flex items-center">
+                                <!-- Steps 1 to 6 -->
+                                <div class="relative">
+                                    <div
+                                        class="w-10 h-10 bg-green-500 text-white rounded-full flex items-center justify-center">
+                                        1</div>
+                                    <div class="absolute left-1/2 -translate-x-1/2 top-12 text-sm text-center">Order
+                                        Placed</div>
+                                </div>
+                                <div class="flex-1 h-1 bg-green-500"></div>
+                                <div class="relative">
+                                    <div
+                                        class="w-10 h-10 bg-green-500 text-white rounded-full flex items-center justify-center">
+                                        2</div>
+                                    <div class="absolute left-1/2 -translate-x-1/2 top-12 text-xs text-center">Out from
+                                        Workshop</div>
+                                </div>
+                                <div class="flex-1 h-1 bg-green-500"></div>
+                                <div class="relative">
+                                    <div
+                                        class="w-10 h-10 bg-green-500 text-white rounded-full flex items-center justify-center">
+                                        3</div>
+                                    <div class="absolute left-1/2 -translate-x-1/2 top-12 text-xs text-center">Shipping
+                                        Started</div>
+                                </div>
+                                <div class="flex-1 h-1 bg-green-500"></div>
+                                <div class="relative">
+                                    <div
+                                        class="w-10 h-10 bg-green-500 text-white rounded-full flex items-center justify-center">
+                                        4</div>
+                                    <div class="absolute left-1/2 -translate-x-1/2 top-12 text-xs text-center">Shipping
+                                        Booked</div>
+                                </div>
+                                <div class="flex-1 h-1 bg-green-500"></div>
+                                <div class="relative">
+                                    <div
+                                        class="w-10 h-10 bg-green-500 text-white rounded-full flex items-center justify-center">
+                                        5</div>
+                                    <div class="absolute left-1/2 -translate-x-1/2 top-12 text-xs text-center">Shipped
+                                    </div>
+                                </div>
+                                <div class="flex-1 h-1 bg-gray-300"></div>
+                                <div class="relative">
+                                    <div
+                                        class="w-10 h-10 bg-gray-300 text-white rounded-full flex items-center justify-center">
+                                        6</div>
+                                    <div
+                                        class="absolute left-1/2 -translate-x-1/2 top-12 text-xs text-center text-gray-400">
+                                        Delivered</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Dates and Status -->
+                        <div class="grid grid-cols-6 gap-4 text-center mt-8">
+                            <!-- Step Details -->
+                            <div>
+                                <div class="font-semibold text-sm">Feb 12, 2024</div>
+                                <div class="text-gray-600 text-sm mt-2">Order processed</div>
+                            </div>
+                            <div>
+                                <div class="font-semibold text-lg">Feb 14, 2024</div>
+                                <div class="text-gray-600 text-sm mt-2">Order processed</div>
+                            </div>
+                            <div>
+                                <div class="font-semibold text-lg">Feb 15, 2024</div>
+                                <div class="text-gray-600 text-sm mt-2">Order processed</div>
+                            </div>
+                            <div>
+                                <div class="font-semibold text-lg">Feb 16, 2024</div>
+                                <div class="text-gray-600 text-sm mt-2">Order processed</div>
+                            </div>
+                            <div>
+                                <div class="font-semibold text-lg">Feb 18, 2024</div>
+                                <div class="text-gray-600 text-sm mt-2">Order processed</div>
+                            </div>
+                            <div>
+                                <div class="font-semibold text-lg text-gray-400">Feb 20, 2024</div>
+                                <div class="text-gray-400 text-sm mt-2">Order processed</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex-grow pl-4 mt-0">
+                    <!-- Slideshow -->
+                    <div class="relative w-full overflow-hidden">
+                        <!-- Images -->
+                        <div id="slideshow" class="flex transition-transform duration-700">
+                            <img src="images/Rectangle 110.jpg" alt="Product Image 1" class="w-full  ">
+                            <!-- <img src="Rectangle 111.png" alt="Product Image 2" class="w-full  ">
+                        <img src="Rectangle 112.png" alt="Product Image 3" class="w-full  "> -->
+
+
+                        </div>
+
+                        <!-- Previous/Next Buttons -->
+                        <!-- <button id="prevBtn" class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-gray-700 text-white px-4 py-2 opacity-70 hover:opacity-100">❮</button>
+                    <button id="nextBtn" class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-gray-700 text-white px-4 py-2 opacity-70 hover:opacity-100">❯</button> -->
+                    </div>
+
+                    <!-- Dots for Slideshow Navigation -->
+                    <div class="flex justify-center mt-4 space-x-2">
+                        <span class="dot h-3 w-3 bg-gray-400 rounded-full cursor-pointer" data-index="0"></span>
+                        <span class="dot h-3 w-3 bg-gray-400 rounded-full cursor-pointer" data-index="1"></span>
+                        <span class="dot h-3 w-3 bg-gray-400 rounded-full cursor-pointer" data-index="2"></span>
+                    </div>
+
+                    <div class="text-3xl font-bold">Product Pump</div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-lg">Pressure 300 Pa</span>
+                        <span class="text-2xl font-bold">200 000 Kr</span>
+                    </div>
+                    <p class="text-gray-600 mt-4">
+                        It is a long established fact that a reader will be distracted by the readable content of a page
+                        when looking at its layout. Lorem ipsum, dolor sit amet consectetur Lorem ipsum dolor sit amet,
+                        consectetur adipisicing elit. Quis cum minima nostrum quia necessitatibus tempora voluptatibus
+                        suscipit totam tempore dolorum. adipisicing elit. Tempore, iure.
+                    </p>
+
+                    <div class="flex space-x-4 mt-4">
+                        <button id="description-btn"
+                            class="px-5 py-2.5 bg-[#0F1C40] font-bold rounded-lg text-sm border text-white">Description</button>
+                        <button id="specification-btn"
+                            class="px-5 py-2.5 font-medium font-bold rounded-lg text-sm border border-blue-700">Specification</button>
+                        <button id="technical-info-btn"
+                            class="px-5 py-2.5 font-medium font-bold rounded-lg text-sm border border-blue-700">Technical
+                            Information</button>
+                    </div>
+
+                    <div class="flex items-center mt-8">
+                        <div class="w-1/4 font-bold bg-[#0F1C40] text-white p-4 rounded-l-md">Param 1</div>
+                        <div class="w-3/4 bg-gray-100 p-4 rounded-r-md">It is a long established fact that a
+                            reader will be distracted by the readable content of a page when looking at its
+                            layout.
+                        </div>
+                    </div>
+                    <div class="flex items-center ">
+                        <div class="w-1/4 font-bold bg-[#0F1C40] text-white p-4 rounded-l-md">Param 2</div>
+                        <div class="w-3/4 bg-white-50 p-4 rounded-r-md">It is a long established fact that a
+                            reader will be distracted by the readable content of a page when looking at its
+                            layout.
+                        </div>
+                    </div>
+                    <div class="flex items-center ">
+                        <div class="w-1/4 font-bold bg-[#0F1C40] text-white p-4 rounded-l-md">Param 3</div>
+                        <div class="w-3/4 bg-gray-100 p-4 rounded-r-md">It is a long established fact that a
+                            reader will be distracted by the readable content of a page when looking at its
+                            layout.
+                        </div>
+                    </div>
+                    <div class="flex items-center ">
+                        <div class="w-1/4 font-bold bg-[#0F1C40] text-white p-4 rounded-l-md">Param 4</div>
+                        <div class="w-3/4 bg-white-50 p-4 rounded-r-md">It is a long established fact that a
+                            reader will be distracted by the readable content of a page when looking at its
+                            layout.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-[#0F1C40] text-white text-right p-4 mt-8">
+        <p>Version 2.0.0 | Released 10/02/2024</p>
+    </footer>
+
+    <script>
+        function showProducts(type) {
+            const productList = document.getElementById('product-list');
+            let content = '';
+
+            // Update button styles
+            document.getElementById('active-btn').classList.remove('bg-[#0F1C40]', 'text-white');
+            document.getElementById('active-btn').classList.add('border-blue-700', 'text-blue-950');
+            document.getElementById('delivered-btn').classList.remove('bg-[#0F1C40]', 'text-white');
+            document.getElementById('delivered-btn').classList.add('border-blue-700', 'text-blue-950');
+            document.getElementById('canceled-btn').classList.remove('bg-[#0F1C40]', 'text-white');
+            document.getElementById('canceled-btn').classList.add('border-blue-700', 'text-blue-950');
+
+            if (type === 'active') {
+                document.getElementById('active-btn').classList.add('bg-[#0F1C40]', 'text-white');
+                document.getElementById('active-btn').classList.remove('border-blue-700', 'text-blue-950');
+                content = `
+                    <div class="flex p-4 border rounded-lg justify-between items-center">
+                        <div class="flex items-center space-x-4">
+                            <img src="./images/Rectangle106.jpg" class="h-30 w-30" alt="Product Image">
+                            <div>
+                                <h3 class="font-bold text-2xl">Product Pump</h3>
+                                <p>Pressure 300 Pa</p>
+                                <span class="text-green-500">Shipped</span>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-xl font-bold">200 000 Kr</p>
+                            <button class="text-blue-500 underline">Download Invoice</button>
+                        </div>
+                    </div>
+                    <!-- Order 2 -->
+                    <div class="flex p-4 border rounded-lg justify-between items-center">
+                        <div class="flex items-center space-x-4">
+                            <img src="./images/Rectangle106.jpg" class="h-30 w-30" alt="Product Image">
+                            <div>
+                                <h3 class="font-bold text-2xl">Exhaust</h3>
+                                <p>Pressure 300 Pa</p>
+                                <span class="text-yellow-500">Shipping Booked</span>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-xl font-bold">129 967 Kr</p>
+                            <button class="text-blue-500 underline">Download Invoice</button>
+                        </div>
+                    </div>
+                    <!-- Order 3 -->
+                    <div class="flex p-4 border rounded-lg justify-between items-center">
+                        <div class="flex items-center space-x-4">
+                            <img src="./images/Rectangle109.jpg" class="h-30 w-30" alt="Product Image">
+                            <div>
+                                <h3 class="font-bold text-2xl">Blade</h3>
+                                <p>Size 300 m</p>
+                                <span class="text-yellow-500">Shipping Booked</span>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-xl font-bold">8 967 Kr</p>
+                            <button class="text-blue-500 underline">Download Invoice</button>
+                        </div>
+                    </div>
+                `;
+            } else if (type === 'delivered') {
+                document.getElementById('delivered-btn').classList.add('bg-[#0F1C40]', 'text-white');
+                document.getElementById('delivered-btn').classList.remove('border-blue-700', 'text-blue-950');
+                content = `
+                    <div class="flex p-4 border rounded-lg justify-between items-center">
+                        <div class="flex items-center space-x-4">
+                            <img src="https://via.placeholder.com/120" class="h-30 w-30" alt="Product Image">
+                            <div>
+                                <h3 class="font-bold text-2xl">Product Pump</h3>
+                                <p>Pressure 300 Pa</p>
+                                <span class="text-green-500">Delivered</span>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-xl font-bold">200 000 Kr</p>
+                            <button class="text-blue-500 underline">Download Invoice</button>
+                        </div>
+                    </div>
+                    <!-- Order 2 -->
+                    <div class="flex p-4 border rounded-lg justify-between items-center">
+                        <div class="flex items-center space-x-4">
+                            <img src="https://via.placeholder.com/120" class="h-30 w-30" alt="Product Image">
+                            <div>
+                                <h3 class="font-bold text-2xl">Exhaust</h3>
+                                <p>Pressure 300 Pa</p>
+                                <span class="text-green-500">Delivered</span>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-xl font-bold">129 967 Kr</p>
+                            <button class="text-blue-500 underline">Download Invoice</button>
+                        </div>
+                    </div>
+                    <!-- Order 3 -->
+                    <div class="flex p-4 border rounded-lg justify-between items-center">
+                        <div class="flex items-center space-x-4">
+                            <img src="https://via.placeholder.com/120" class="h-30 w-30" alt="Product Image">
+                            <div>
+                                <h3 class="font-bold text-2xl">Blade</h3>
+                                <p>Size 300 m</p>
+                                <span class="text-green-500">Delivered</span>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-xl font-bold">8 967 Kr</p>
+                            <button class="text-blue-500 underline">Download Invoice</button>
+                        </div>
+                    </div>
+                `;
+            } else if (type === 'canceled') {
+                document.getElementById('canceled-btn').classList.add('bg-[#0F1C40]', 'text-white');
+                document.getElementById('canceled-btn').classList.remove('border-blue-700', 'text-blue-950');
+                content = `
+                    <div class="flex p-4 border rounded-lg justify-between items-center">
+                        <div class="flex items-center space-x-4">
+                            <img src="https://via.placeholder.com/120" class="h-30 w-30" alt="Product Image">
+                            <div>
+                                <h3 class="font-bold text-2xl">Product Pump</h3>
+                                <p>Pressure 300 Pa</p>
+                                <span class="text-red-500">Canceled</span>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <p class="text-xl font-bold">200 000 Kr</p>
+                            <button class="text-blue-500 underline">Download Invoice</button>
+                        </div>
+                    </div>
+                    <!-- Order 2 -->
+
+                `;
+            }
+
+            productList.innerHTML = content;
+        }
+
+        // Load default content
+        document.addEventListener('DOMContentLoaded', () => {
+            showProducts('active');
+        });
+    </script>
+</body>
+
+</html>

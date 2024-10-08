@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mushraf</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="dist/output.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100">
+
+    <!-- Navbar -->
+    <nav class="bg-[#0F1C40] p-4">
+        <div class="container mx-auto flex justify-end items-center">
+            <div class="flex space-x-6 text-gray-300">
+                <a href="index.html"
+                    class="text-white hover:underline hover:underline-offset-8 underline-offset-8">Home</a>
+                <a href="machines.html"
+                    class="hover:text-white hover:underline hover:underline-offset-8 hover:decoration-whitetext-white underline underline-offset-8 font-bold">Machines</a>
+                <a href="orders.html"
+                    class="hover:text-white hover:underline hover:underline-offset-8 hover:decoration-white">Orders</a>
+                <a href="appointments.html"
+                    class="hover:text-white hover:underline hover:underline-offset-8 hover:decoration-white">Appointments</a>
+            </div>
+            <div class="flex space-x-4 ml-4">
+                <button class="bg-white text-blue-900 rounded-full p-2 ">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5">
+                        <path fill-rule="evenodd"
+                            d="M1 11.27c0-.246.033-.492.099-.73l1.523-5.521A2.75 2.75 0 0 1 5.273 3h9.454a2.75 2.75 0 0 1 2.651 2.019l1.523 5.52c.066.239.099.485.099.732V15a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-3.73Zm3.068-5.852A1.25 1.25 0 0 1 5.273 4.5h9.454a1.25 1.25 0 0 1 1.205.918l1.523 5.52c.006.02.01.041.015.062H14a1 1 0 0 0-.86.49l-.606 1.02a1 1 0 0 1-.86.49H8.236a1 1 0 0 1-.894-.553l-.448-.894A1 1 0 0 0 6 11H2.53l.015-.062 1.523-5.52Z"
+                            clip-rule="evenodd" />
+                    </svg>
+                </button>
+                <button class="text-white rounded-full">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Machines Grid -->
+    <div class="container mx-auto mt-8">
+        <div class="grid grid-cols-3 gap-6">
+            <!-- Machine Card 1 -->
+            <div class="border border-red-500 p-4 bg-white rounded-lg shadow-lg">
+                <img src="images/pic 1.avif" alt="Venturi Dryer Alarm" class="w-full h-30 object-cover mb-4">
+                <h2 class="text-lg font-semibold">Venturi Dryer Alarm</h2>
+                <p>Branch: KLM Branch</p>
+                <p>Location: J.K. Building 2.0</p>
+                <p class="mt-2 text-green-500"><b>340 h 23 m 20 s</b></p>
+            </div>
+
+            <!-- Machine Card 2 (Selected) -->
+            <div class="border-2 border-red-500  p-4 bg-white rounded-lg shadow-lg">
+                <img src="images/cool.jpg" alt="Double Belt Cooling" class="w-full h-30 object-cover mb-4">
+                <h2 class="text-lg font-semibold">Double Belt Cooling</h2>
+                <p>Branch: JSA Branch</p>
+                <p>Location: A.A. Building 1.0</p>
+                <p class="mt-2 text-red-500"><b>14 h 29 m 50 s</b></p>
+                <p class="text-red-500"><b>Part 1 Damage - 210°C</b></p>
+                <p class="text-red-500"><b>300 Unit</b></p>
+            </div>
+
+            <!-- Machine Card 3 -->
+            <div class="border border-red-500 p-4 bg-white rounded-lg shadow-lg">
+                <img src="images/cool.jpg" alt="Supercooling System" class="w-full h-30 object-cover mb-4">
+                <h2 class="text-lg font-semibold">Supercooling System</h2>
+                <p>Branch: KLM Branch</p>
+                <p>Location: J.K. Building 2.0</p>
+                <p class="mt-2 text-green-500"><b>567 h 23 m 20 s</b></p>
+            </div>
+        </div>
+
+        <!-- Machine Details -->
+        <div class="mt-8 bg-white p-6 rounded-lg shadow-lg">
+            <div class="flex justify-between">
+                <div>
+                    <h1 class="text-2xl font-semibold">Double Belt Cooling</h1>
+                    <p>Branch: KLM Branch</p>
+                    <p>Location: J.K. Building 2.0</p>
+                    <p class="mt-2"><b>Running Time: 340 h 23 m 20 s</b></p>
+                    <p class="text-red-500"><b>Down Time: 3 h 15 m 10 s</b></p>
+                </div>
+                <div class="flex flex-col space-y-2">
+                    <button
+                        class="bg-[#0F1C40] text-white py-2 px-4 rounded-lg text-white hover:underline hover:underline-offset-8 underline-offset-8">Book
+                        Appointment</button>
+                    <button
+                        class="bg-[#0F1C40] text-white py-2 px-4 rounded-lg text-white hover:underline hover:underline-offset-8 underline-offset-8">Order
+                        Spare Part</button>
+                    <button
+                        class="bg-[#0F1C40] text-white py-2 px-4 rounded-lg text-white hover:underline hover:underline-offset-8 underline-offset-8">Add
+                        Sensor</button>
+                </div>
+            </div>
+
+            <div class="flex mt-4">
+                <div class="flex-grow">
+                    <img src="images/pic 1.avif" alt="Machine Detail Image" class="w-full h-full object-cover">
+                </div>
+                <div class="w-1/2 ml-4">
+                    <!-- Parameters Section -->
+                    <h3 class="font-semibold">Parameters</h3>
+                    <div class="mt-2 space-y-2">
+                        <!-- Parameter 1 -->
+                        <div class="flex justify-between">
+                            <span>Param 1</span>
+                            <div class="bg-gray-200 w-3/4 h-4 rounded-full overflow-hidden">
+                                <div class="bg-green-600 h-full w-1/4"></div>
+                            </div>
+                        </div>
+                        <!-- Parameter 2 -->
+                        <div class="flex justify-between">
+                            <span>Param 2</span>
+                            <div class="bg-gray-200 w-3/4 h-4 rounded-full overflow-hidden">
+                                <div class="bg-green-600 h-full w-1/4"></div>
+                            </div>
+                        </div>
+                        <!-- Parameter 3 -->
+                        <div class="flex justify-between">
+                            <span>Param 3</span>
+                            <div class="bg-gray-200 w-3/4 h-4 rounded-full overflow-hidden">
+                                <div class="bg-green-600 h-full w-1/2"></div>
+                            </div>
+                        </div>
+                        <!-- Parameter 4 -->
+                        <div class="flex justify-between">
+                            <span>Param 4</span>
+                            <div class="bg-gray-200 w-3/4 h-4 rounded-full overflow-hidden">
+                                <div class="bg-green-600 h-full w-3/4"></div>
+                            </div>
+                        </div>
+                        <!-- Parameter 5 -->
+                        <div class="flex justify-between">
+                            <span>Param 5</span>
+                            <div class="bg-gray-200 w-3/4 h-4 rounded-full overflow-hidden">
+                                <div class="bg-green-600 h-full w-1/3"></div>
+                            </div>
+                        </div>
+                        <!-- Parameter 6 -->
+                        <div class="flex justify-between">
+                            <span>Param 6</span>
+                            <div class="bg-gray-200 w-3/4 h-4 rounded-full overflow-hidden">
+                                <div class="bg-green-600 h-full w-3/4"></div>
+                            </div>
+                        </div>
+                        <!-- Parameter 7 -->
+                        <div class="flex justify-between">
+                            <span>Param 7</span>
+                            <div class="bg-gray-200 w-3/4 h-4 rounded-full overflow-hidden">
+                                <div class="bg-green-600 h-full w-3/4"></div>
+                            </div>
+                        </div>
+                        <!-- Parameter 8 -->
+                        <div class="flex justify-between">
+                            <span>Param 8</span>
+                            <div class="bg-gray-200 w-3/4 h-4 rounded-full overflow-hidden">
+                                <div class="bg-green-600 h-full w-3/4"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-blue-900 text-white p-2 mt-8">
+        <div class="container mx-auto text-center">
+            <p>v3.4.0.1 | Last Released: Feb 10, 2024 13:24</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
