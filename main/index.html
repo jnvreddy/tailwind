@@ -8,6 +8,11 @@
     <!------------------------ICONS----------------------->
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <!----------tailwind------------->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <!------------------------FONTS-------------------------->
@@ -44,811 +49,841 @@
 
 
     <!-- Navbar -->
-    <header>
-        <nav style="background-color: #0F1C40;" class="md:h-28 space-x-12 flex justify-end  items-center p-2 ">
-            <div style="background-color: #0F1C40;"
-                class="nav-links duration-500 md:static absolute bg-black md:min-h-fit min-h-[40vh] left-0 top-[-100%] md:w-auto w-full flex items-center px-5">
-                <ul
-                    class="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8 text-4xl text-gray-200 font-extralight">
-                    <li>
-                        <a href="index.html" class="text-white underline underline-offset-8 font-bold">Home</a>
-                    </li>
-                    <li>
-                        <a href="machines.html"
-                            class="hover:text-white hover:underline hover:underline-offset-8 hover:decoration-white">Machines</a>
-                    </li>
-                    <li>
-                        <a href="orders.html"
-                            class="hover:text-white hover:underline hover:underline-offset-8 hover:decoration-white">Orders</a>
-                    </li>
-                    <li>
-                        <a href="appointments.html"
-                            class="hover:text-white hover:underline hover:underline-offset-8 hover:decoration-white">Appointments</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="flex md:space-x-6 space-x-2 items-center  justify-center">
-                <button class=" text-white rounded-full p-2">
-                    <span class="material-symbols-outlined md:text-4xl text-3xl">
-                        local_mall
-                    </span>
-                </button>
-                <button class="text-white rounded-full ">
-                    <span class="material-symbols-outlined md:text-4xl text-3xl">
-                        search
-                    </span>
-                </button>
-                <ion-icon onclick="onToggleMenu(this)" name="menu-outline"
-                    class="md:text-4xl text-3xl cursor-pointer text-white md:hidden"></ion-icon>
-            </div>
-        </nav>
-    </header>
-
+<header>
+    <nav class="bg-[#0F1C40] xl:h-32 lg:h-20 md:h-16 lg:space-x-8 space-x-6 flex justify-end  items-center p-2 ">
+        <div
+            class="bg-[#0F1C40] nav-links duration-500 md:static absolute  md:min-h-fit min-h-[25vh] left-0  top-[-100%] md:w-auto w-full flex items-center px-5">
+            <ul
+                class="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8 xl:text-3xl lg:text-xl md:text-lg text-gray-300 font-extralight">
+                <li>
+                    <a href="index.html" class="text-white underline underline-offset-8 font-bold">Home</a>
+                </li>
+                <li>
+                    <a href="machines.html"
+                        class="hover:text-white hover:underline hover:underline-offset-8 hover:decoration-white">Machines</a>
+                </li>
+                <li>
+                    <a href="orders.html"
+                        class="hover:text-white hover:underline hover:underline-offset-8 hover:decoration-white ">Orders</a>
+                </li>
+                <li>
+                    <a href="appointment.html"
+                        class="hover:text-white hover:underline hover:underline-offset-8 hover:decoration-white">Appointments</a>
+                </li>
+            </ul>
+        </div>
+        <div class="flex lg:space-x-6 md:space-x-3 space-x-2 items-center justify-center">
+            <!-- Added ml-4 for spacing between links and buttons -->
+            <button class=" text-white rounded-full ">
+                <span class="material-symbols-outlined lg:text-4xl md:text-3xl ">
+                    local_mall
+                </span>
+            </button>
+            <button class="text-white rounded-full ">
+                <span class="material-symbols-outlined lg:text-4xl md:text-3xl lg:pr-4 md:pr-2">
+                    search
+                </span>
+            </button>
+            <ion-icon onclick="onToggleMenu(this)" name="menu-outline"
+                class="mb-1 md:text-4xl text-3xl cursor-pointer text-white md:hidden"></ion-icon>
+        </div>
+    </nav>
+</header>
 
     <!-- Main Section -->
-    <div class=" w-full md:p-4 ">
-        <!-- Alarms and Machine Status -->
-        <div class=" md:grid grid-cols-7  mb-2 ">
-            <!-- Alarms -->
+<div class=" w-full md:p-4 ">
+    <!-- Alarms and Machine Status -->
+    <div class=" xl:grid grid-cols-7  mb-2 ">
+        <!-- Alarms -->
 
-            <div class="col-span-3 p-4">
-                <div class="flex justify-between items-center mb-4">
-                    <div class="flex justify-center   md:space-x-2  items-center">
-                        <h2 style="color: #0F1C40;" class=" md:text-xl text-lg md:font-bold font-semibold">All Alarms
-                        </h2>
-                        <div class="flex items-center justify-start ml-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                                style="color: #FF3334;" class="md:size-6 size-5">
-                                <path fill-rule="evenodd"
-                                    d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12ZM12 8.25a.75.75 0 0 1 .75.75v3.75a.75.75 0 0 1-1.5 0V9a.75.75 0 0 1 .75-.75Zm0 8.25a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z"
-                                    clip-rule="evenodd" />
-                            </svg>
-                            <h3 style=" color:#FF3334" class="md:text-xl text-sm ">
-                                1 / 4
-                            </h3>
-                        </div>
-                    </div>
-                    <div class="flex  md:space-x-6 space-x-1">
-                        <div class="relative inline-block text-left">
-                            <!-- Button -->
-
-                            <button id="dropdownButton" onclick="toggleDropdown()"
-                                class="inline-flex justify-between items-center p-1 md:px-2 rounded-md border-2 border-blue-950 text-sm font-medium text-blue-950 hover:bg-gray-50 focus:outline-none">
-                                Today
-                                <span class="material-symbols-outlined md:ml-4">
-                                    expand_circle_down
-                                </span>
-                            </button>
-
-
-                            <!-- Dropdown Menu -->
-                            <div id="dropdownMenu"
-                                class="hidden absolute right-0 mt-2 w-48 bg-white border border-blue-950 rounded-md shadow-lg">
-                                <a href="#"
-                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Yestarday</a>
-                                <hr class="border border-gray-300 ">
-                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Option 2</a>
-                                <hr class="border border-gray-300 ">
-                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Option 3</a>
-                            </div>
-                        </div>
-
-                        <button
-                            class="bg-[#0F1C40] justify-center text-xs font-semibold text-center items-center text-white  p-1 px-3 rounded-md">Create
-                            Alarm</button>
+        <div class="col-span-3 p-4 px-4">
+            <div class="flex justify-between items-center mb-4">
+                <div class="flex justify-center   md:space-x-2  items-center">
+                    <h2 style="color: #0F1C40;" class=" md:text-xl text-lg md:font-bold font-semibold">All Alarms
+                    </h2>
+                    <div class="flex items-center justify-start ml-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                            style="color: #FF3334;" class="md:size-6 size-5">
+                            <path fill-rule="evenodd"
+                                d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12ZM12 8.25a.75.75 0 0 1 .75.75v3.75a.75.75 0 0 1-1.5 0V9a.75.75 0 0 1 .75-.75Zm0 8.25a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z"
+                                clip-rule="evenodd" />
+                        </svg>
+                        <h3 style=" color:#FF3334" class="md:text-xl text-sm ">
+                            1 / 4
+                        </h3>
                     </div>
                 </div>
+                <div class="flex  md:space-x-6 space-x-1">
+                    <div class="relative inline-block text-left">
+                        <!-- Button -->
+
+                        <button id="dropdownButton" onclick="toggleDropdown()"
+                            class="inline-flex justify-between items-center p-1 md:px-2 rounded-md border-2 border-blue-950 text-sm font-medium text-[#0F1C40] hover:bg-gray-50 focus:outline-none overflow-hidden">
+                            Today
+                            <span class="material-symbols-outlined md:ml-4">
+                                expand_circle_down
+                            </span>
+                        </button>
 
 
-                <div class="bg-gray-100 p-6 rounded-lg shadow-lg ">
-                    <div class="items-center md:mb-3">
-                        <span class=" text-blue-950 md:text-xl font-bold">
-                            Venturi Dryer Alarm</span>
-                    </div>
-                    <p class="text-red-500 md:text-[8px] text-[5px] pl-[20%] mb-1">Overall Temp.>100 degree °C</p>
-                    <div class="flex w-full md:h-2 h-1.5 bg-gray-200 overflow-hidden mb-2 ">
-                        <div class="flex flex-col justify-center overflow-hidden bg-[#008E28] text-xs text-white text-center whitespace-nowrap"
-                            style="width: 20%" role="progressbar" aria-valuenow="25" aria-valuemin="0"
-                            aria-valuemax="100"></div>
-                        <div class="flex flex-col justify-center overflow-hidden   text-xs text-white text-center whitespace-nowrap"
-                            style="width: 21%;background-color: #FF3334;" role="progressbar" aria-valuenow="15"
-                            aria-valuemin="0" aria-valuemax="100"></div>
-                        <div class="flex flex-col justify-center overflow-hidden bg-[#008E28] text-xs text-white text-center whitespace-nowrap"
-                            style="width: 37%" role="progressbar" aria-valuenow="5" aria-valuemin="0"
-                            aria-valuemax="100"></div>
-                    </div>
-                    <!-- Time Markers -->
-                    <div class="flex   justify-between w-full md:text-xs text-[8px]  mb-2">
-                        <div class="space-x-[18%] w-[60%]">
-                            <span class="text-black ">0000 hrs</span>
-                            <span class="text-black ">0830 hrs</span>
-                            <span class="text-black ">1030 hrs</span>
-                        </div>
-                        <div class="space-x-5">
-                            <span class="text-gray-400 ">2030 hrs</span>
-                            <span class="text-black ">2359 hrs</span>
-                        </div>
-                    </div>
-                    <!-- Alarm 2 --------------------------------------------->
-                    <div class="flex justify-between items-center md:mb-3 mb-2 ">
-                        <span class=" text-blue-950 md:text-xl font-bold">
-                            Double Belt Cooling System Alarm</span>
-                    </div>
-                    <div class="flex w-full md:h-2 h-1.5 bg-gray-200 mb-2 overflow-hidden ">
-                        <div class="flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap"
-                            style="width: 78%;background-color: #008E28;" role="progressbar" aria-valuenow="25"
-                            aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <!-- Time Markers -->
-                    <div class="flex   justify-between w-full md:text-xs text-[8px]  mb-2">
-                        <div class="space-x-5 w-[40%]">
-                            <span class="text-black ">0000 hrs</span>
-
-                        </div>
-                        <div class="space-x-5">
-                            <span class="text-gray-400 ">2030 hrs</span>
-                            <span class="text-black ">2359 hrs</span>
+                        <!-- Dropdown Menu -->
+                        <div id="dropdownMenu"
+                            class="hidden absolute right-0 mt-2 w-48 bg-white border border-blue-950 rounded-md shadow-lg">
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Yestarday</a>
+                            <hr class="border border-gray-300 ">
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Option 2</a>
+                            <hr class="border border-gray-300 ">
+                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Option 3</a>
                         </div>
                     </div>
 
-                    <!-- Alarm 3-------------------------- -->
-                    <div class="flex justify-between items-center  ">
-                        <span style="color: #FF3334;" class=" md:text-xl font-bold">
-                            Supercooling System Alarm</span>
-                        <label for="toggleFour"
-                            class="flex items-center cursor-pointer select-none text-dark dark:text-white">
-                            <div class="relative">
-                                <input type="checkbox" id="toggleFour" class="peer sr-only" />
-                                <!-- Background of the slider -->
-                                <div
-                                    class="block md:h-6 md:w-10 h-4 w-6 rounded-full box bg-gray-400 dark:bg-dark-2 peer-checked:bg-[#FF3334]">
-                                </div>
-                                <!-- Dot (the moving part) -->
-                                <div
-                                    class="absolute flex items-center justify-center md:w-4 md:h-4 h-2 w-2 transition bg-white rounded-full dot left-1 top-1 dark:bg-dark-5 peer-checked:translate-x-full peer-checked:bg-white peer-checked:dark:bg-white">
-                                </div>
-                            </div>
-                        </label>
-                    </div>
-                    <p class="text-red-500 md:text-[8px] text-[6px]  text-right">Manually turn off the alarm</p>
-                    <p class="text-red-500 md:text-[8px] text-[5px]  pl-[62%] mb-1">Overall Temp.>100 degree °C </p>
-                    <div class="flex w-full md:h-2 h-1.5 bg-gray-200  overflow-hidden mb-2">
-                        <div class="flex flex-col justify-center overflow-hidden  text-xs text-white text-center whitespace-nowrap"
-                            style="width: 62%;background-color: #008E28;" role="progressbar" aria-valuenow="25"
-                            aria-valuemin="0" aria-valuemax="100"></div>
-                        <div class="flex flex-col justify-center overflow-hidden  text-xs text-white text-center whitespace-nowrap"
-                            style="width: 16%;background-color: #FF3334;" role="progressbar" aria-valuenow="25"
-                            aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <!-- Time Markers -->
-                    <div class="flex   justify-between w-full md:text-xs text-[8px]  mb-2">
-                        <div class="md:space-x-[70%] md:w-[75%] space-x-[60%] w-[69%]">
-                            <span class="text-black ">0000 hrs</span>
-                            <span class="text-[#FF3334] font-semibold ">1830 hrs</span>
-                        </div>
-                        <div class="space-x-5">
-                            <span class="text-[#FF3334] font-semibold">2030 hrs</span>
-                            <span class="text-black ">2359 hrs</span>
-                        </div>
-                    </div>
-
-                    <!--Alarm 4 ----------------------------------------------------------->
-                    <div class="flex justify-between items-center md:mb-3 mb-2">
-                        <span class=" text-blue-950 md:text-xl font-bold">
-                            Double Belt Cooling System Alarm</span>
-                    </div>
-                    <div class="flex w-full md:h-2 h-1.5 bg-gray-200  overflow-hidden mb-2">
-                        <div class="flex flex-col justify-center overflow-hidden  text-xs text-white text-center whitespace-nowrap"
-                            style="width: 78%;background-color: #008E28;" role="progressbar" aria-valuenow="25"
-                            aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <!-- Time Markers -->
-                    <div class="flex   justify-between w-full md:text-xs text-[8px] ">
-                        <div class="space-x-5 w-[40%]">
-                            <span class="text-black ">0000 hrs</span>
-
-                        </div>
-                        <div class="space-x-5">
-                            <span class="text-gray-400 ">2030 hrs</span>
-                            <span class="text-black ">2359 hrs</span>
-                        </div>
-                    </div>
+                    <button
+                        class="bg-[#0F1C40] justify-center text-xs font-semibold text-center items-center text-white  p-1 px-3 rounded-md">Create
+                        Alarm</button>
                 </div>
             </div>
 
-            <!-- Machines under Alarm -->
-            <div class=" col-span-4 md:p-2 p-4">
-                <div class="flex  justify-between items-center mb-4">
-                    <div class="flex justify-center space-x-1 items-center">
-                        <h2 class="text-[#0F1C40] md:text-xl text-lg md:font-bold font-semibold">Machines under alarm
-                        </h2>
+
+            <div class="bg-gray-100 p-6 rounded-lg shadow-lg ">
+                <div class="items-center md:mb-3">
+                    <span class=" text-[#0F1C40] md:text-xl font-bold">
+                        Venturi Dryer Alarm</span>
+                </div>
+                <p class="text-red-500 md:text-[8px] text-[5px] pl-[20%] mb-1">Overall Temp.>100 degree °C</p>
+                <div class="flex w-full md:h-2 h-1.5 bg-gray-200 overflow-hidden mb-2 ">
+                    <div class="flex flex-col justify-center overflow-hidden bg-[#008E28] text-xs text-white text-center whitespace-nowrap"
+                        style="width: 20%" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
                     </div>
-                    <div class="flex space-x-1">
-                        <button
-                            class="bg-[#0F1C40] justify-center text-xs font-bold text-center items-center p-2.5 px-3 text-white  rounded-md">
-                            Add Machines</button>
+                    <div class="flex flex-col justify-center overflow-hidden   text-xs text-white text-center whitespace-nowrap"
+                        style="width: 21%;background-color: #FF3334;" role="progressbar" aria-valuenow="15"
+                        aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="flex flex-col justify-center overflow-hidden bg-[#008E28] text-xs text-white text-center whitespace-nowrap"
+                        style="width: 37%" role="progressbar" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100">
                     </div>
                 </div>
-                <div class="bg-gray-100 p-5 rounded-lg shadow-lg ">
-                    <div class=" flex gap-1 mb-4">
-
-                        <div class="h-fit  ">
-                            <img src="../images/img1.jpg" alt="image1"
-                                class="md:h-28 md:w-48 h-24 w-32 object-cover rounded-md border-2 border-blue-950">
-                        </div>
-                        <div class=" p-1  flex-1">
-                            <div class="md:flex  justify-between ">
-                                <!-- Left side text -->
-                                <div class=" md:text-left md:text-3xl text-xl font-bold items-center  ">
-                                    <p style="color: #FF3334;">Supercooling System</p>
-                                </div>
-
-                                <!-- Right side text -->
-                                <div class="md:text-right">
-                                    <p class="text-xs  text-[#0F1C40]">Installation Date</p>
-                                    <span class="text-[#0F1C40] text-sm">Feb 20, 2024 1324 hrs</span>
-                                </div>
-                            </div>
-                            <div class="md:flex space-x-4 mt-4  md:visible hidden">
-                                <!-- Four equal divs -->
-                                <div class="flex-1 text-[#0F1C40]  text-start">
-                                    <p class="text-sm ">Branch</p>
-                                    <p class="text-lg ">KLM Branch</p>
-                                </div>
-                                <div class="flex-1 text-[#0F1C40]   text-start">
-                                    <p class="text-sm ">Location</p>
-                                    <p class="text-lg ">J.K. Building 2.0</p>
-                                </div>
-                                <div class="flex-1 text-[#0F1C40]   text-start">
-                                    <p class="text-sm ">Running time</p>
-                                    <p class="text-lg  font-bold">340 h 23 m 20 s</p>
-                                </div>
-                                <div class="flex-1   text-[#FF3334] text-start">
-                                    <p class="text-sm ">Down time</p>
-                                    <p class="text-lg  font-bold">3 h 15 m 10 s</p>
-                                </div>
-                            </div>
-                        </div>
+                <!-- Time Markers -->
+                <div class="flex   justify-between w-full md:text-xs text-[8px]  mb-2">
+                    <div class="space-x-[18%] w-[60%]">
+                        <span class="text-black ">0000 hrs</span>
+                        <span class="text-black ">0830 hrs</span>
+                        <span class="text-black ">1030 hrs</span>
+                    </div>
+                    <div class="space-x-5">
+                        <span class="text-gray-400 ">2030 hrs</span>
+                        <span class="text-black ">2359 hrs</span>
+                    </div>
+                </div>
+                <!-- Alarm 2 --------------------------------------------->
+                <div class="flex justify-between items-center md:mb-3 mb-2 ">
+                    <span class=" text-[#0F1C40] md:text-xl font-bold">
+                        Double Belt Cooling System Alarm</span>
+                </div>
+                <div class="flex w-full md:h-2 h-1.5 bg-gray-200 mb-2 overflow-hidden ">
+                    <div class="flex flex-col justify-center overflow-hidden text-xs text-white text-center whitespace-nowrap"
+                        style="width: 78%;background-color: #008E28;" role="progressbar" aria-valuenow="25"
+                        aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <!-- Time Markers -->
+                <div class="flex   justify-between w-full md:text-xs text-[8px]  mb-2">
+                    <div class="space-x-5 w-[40%]">
+                        <span class="text-black ">0000 hrs</span>
 
                     </div>
-                    <div class=" md:hidden visible ">
-                        <!-- Four equal divs -->
-                        <div class="flex">
-                            <div class="flex-1 text-[#0F1C40] m-1 p-1  text-start">
-                                <p class="text-sm ">Branch</p>
-                                <p class="text-lg   ">KLM Branch</p>
-                            </div>
-                            <div class="flex-1 text-[#0F1C40] m-1 p-1  text-start">
-                                <p class="text-sm ">Location</p>
-                                <p class="text-lg ">J.K. Building 2.0</p>
-                            </div>
-                        </div>
-                        <div class="flex">
-                            <div class="flex-1 text-[#0F1C40] m-1 p-1  text-start">
-                                <p class="text-sm ">Running time</p>
-                                <p class="text-lg  font-bold">340 h 23 m 20 s</p>
-                            </div>
-                            <div class="flex-1  m-1 p-1 text-[#FF3334] text-start">
-                                <p class="text-sm ">Down time</p>
-                                <p class="text-lg  font-bold">3 h 15 m 10 s</p>
-                            </div>
-                        </div>
+                    <div class="space-x-5">
+                        <span class="text-gray-400 ">2030 hrs</span>
+                        <span class="text-black ">2359 hrs</span>
                     </div>
+                </div>
 
-                    <!-----------------------Supercooling system div 2--------------------->
-                    <div class="md:grid md:space-y-0 space-y-4 grid-cols-7  gap-4 ">
+                <!---------- Alarm 3-------------------------- -->
+                <div class="flex justify-between items-center  ">
+                    <span style="color: #FF3334;" class=" md:text-xl font-bold">
+                        Supercooling System Alarm</span>
+                    <label for="toggleFour"
+                        class="flex items-center cursor-pointer overflow- select-none text-dark dark:text-white">
+                        <div class="relative">
+                            <input type="checkbox" id="toggleFour" class="peer sr-only" />
+                            <!-- Background of the slider -->
+                            <div
+                                class="block md:h-6 md:w-10 h-4 w-6 rounded-full box bg-gray-400 dark:bg-dark-2 peer-checked:bg-[#FF3334]">
+                            </div>
+                            <!-- Dot (the moving part) -->
+                            <div
+                                class="absolute flex items-center justify-center md:w-4 md:h-4 h-2 w-2 transition bg-white rounded-full dot left-1 top-1 dark:bg-dark-5 peer-checked:translate-x-full peer-checked:bg-white peer-checked:dark:bg-white">
+                            </div>
+                        </div>
+                    </label>
+                </div>
+                <p class="text-red-500 md:text-[8px] text-[6px]  text-right">Manually turn off the alarm</p>
+                <p class="text-red-500 md:text-[8px] text-[5px]  pl-[62%] mb-1">Overall Temp.>100 degree °C </p>
+                <div class="flex w-full md:h-2 h-1.5 bg-gray-200  overflow-hidden mb-2">
+                    <div class="flex flex-col justify-center overflow-hidden  text-xs text-white text-center whitespace-nowrap"
+                        style="width: 62%;background-color: #008E28;" role="progressbar" aria-valuenow="25"
+                        aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="flex flex-col justify-center overflow-hidden  text-xs text-white text-center whitespace-nowrap"
+                        style="width: 16%;background-color: #FF3334;" role="progressbar" aria-valuenow="25"
+                        aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <!-- Time Markers -->
+                <div class="flex   justify-between w-full md:text-xs text-[8px]  mb-2">
+                    <div class="md:space-x-[70%] md:w-[75%] space-x-[60%] w-[69%]">
+                        <span class="text-black ">0000 hrs</span>
+                        <span class="text-[#FF3334] font-semibold ">1830 hrs</span>
+                    </div>
+                    <div class="space-x-5">
+                        <span class="text-[#FF3334] font-semibold">2030 hrs</span>
+                        <span class="text-black ">2359 hrs</span>
+                    </div>
+                </div>
 
+                <!--Alarm 4 ----------------------------------------------------------->
+                <div class="flex justify-between items-center md:mb-3 mb-2">
+                    <span class=" text-[#0F1C40] md:text-xl font-bold">
+                        Double Belt Cooling System Alarm</span>
+                </div>
+                <div class="flex w-full md:h-2 h-1.5 bg-gray-200  overflow-hidden mb-2">
+                    <div class="flex flex-col justify-center overflow-hidden  text-xs text-white text-center whitespace-nowrap"
+                        style="width: 78%;background-color: #008E28;" role="progressbar" aria-valuenow="25"
+                        aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                <!-- Time Markers -->
+                <div class="flex   justify-between w-full md:text-xs text-[8px] ">
+                    <div class="space-x-5 w-[40%]">
+                        <span class="text-black ">0000 hrs</span>
+
+                    </div>
+                    <div class="space-x-5">
+                        <span class="text-gray-400 ">2030 hrs</span>
+                        <span class="text-black ">2359 hrs</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Machines under Alarm -->
+        <div class=" col-span-4 md:p-2 p-4">
+            <div class="flex  justify-between items-center mb-4">
+                <div class="flex justify-center space-x-1 items-center">
+                    <h2 class="text-[#0F1C40] md:text-xl text-lg md:font-bold font-semibold">Machines under alarm
+                    </h2>
+                </div>
+                <div class="flex space-x-1">
+                    <button
+                        class="bg-[#0F1C40] justify-center text-xs font-bold text-center items-center p-2.5 px-3 text-white  rounded-md">
+                        Add Machines</button>
+                </div>
+            </div>
+            <div class="bg-gray-100 p-5 rounded-lg shadow-lg ">
+                <div class=" flex gap-1 mb-4">
+
+                    <div class="h-fit  ">
+                        <img src="../images/img1.jpg" alt="image1"
+                            class="md:h-28 md:w-48 h-28 w-32 object-cover rounded-md border-2 border-blue-950">
+                    </div>
+                    <div class=" p-1  flex-1">
+                        <div class="md:flex  justify-between ">
+                            <!-- Left side text -->
+                            <div class=" md:text-left  items-center   ">
+                                <p style="color: #FF3334;" class="lg:text-3xl md:text-2xl text-2xl md:font-semibold">
+                                    Supercooling System</p>
+                            </div>
+
+                            <!-- Right side text -->
+                            <div class="md:text-right ">
+                                <p class="text-xs  font-semibold text-[#0F1C40]">Installation Date</p>
+                                <span class="text-[#0F1C40] text-lg">Feb 20, 2024 1324 hrs</span>
+                            </div>
+                        </div>
                         <div
-                            class="bg-gray-100 col-span-3 grid grid-cols-3 gap-1 md:p-1 p-2   border-2 border-blue-950 rounded-md">
-                            <!-- Nine equal divs -->
-                            <div style="color: #FF3334;" class="md:p-1 p-2 rounded-md text-start w-28 h-15">
-                                <div class="flex justify-between">
-                                    <p style="line-height: 1.1;" class="text-sm font-semibold ">Temp</p>
-                                    <label for="toggleOne"
-                                        class="flex mr-3 items-center cursor-pointer select-none text-dark dark:text-white">
-                                        <div class="relative">
-                                            <input type="checkbox" id="toggleOne" class="peer sr-only" />
-                                            <!-- Background of the slider -->
-                                            <div
-                                                class="block  h-4 w-6 rounded-full box bg-gray-400 dark:bg-dark-2 peer-checked:bg-[#FF3334]">
-                                            </div>
-                                            <!-- Dot (the moving part) -->
-                                            <div
-                                                class="absolute flex items-center justify-center  h-2 w-2 transition bg-white rounded-full dot left-1 top-1 dark:bg-dark-5 peer-checked:translate-x-full peer-checked:bg-white peer-checked:dark:bg-white">
-                                            </div>
-                                        </div>
-                                    </label>
-                                </div>
-                                <p style="line-height: 1.1;" class="text-lg font-bold">105 °C</p>
-                                <p style="line-height: 1.1;" class="md:text-[9px] text-[12px] ">Between 40 °C & 60 °C
-                                </p>
+                            class="md:flex sm:space-x-8 md:space-x-3 lg:space-x-20 xl:space-x-8 space-x-6 mt-4  md:visible hidden">
+                            <!-- Four equal divs -->
+                            <div class="flex-2 text-[#0F1C40]  text-start">
+                                <p class="text-xs font-semibold ">Branch</p>
+                                <p class="text-lg">KLM Branch</p>
                             </div>
-                            <div class="text-blue-950 md:p-1 p-2 rounded-md text-start w-28 h-15">
-                                <p style="line-height: 1.1;" class="text-sm font-semibold">Pressure</p>
-                                <p style="line-height: 1.1;" class="text-lg font-bold">400 Pa</p>
-                                <p style="line-height: 1.1;" class="md:text-[9px] text-[12px] ">Between 350 Pa & 800 Pa
-                                </p>
+                            <div class="flex-2 text-[#0F1C40]   text-start">
+                                <p class="text-xs font-semibold">Location</p>
+                                <p class="text-lg">J.K. Building 2.0</p>
                             </div>
-                            <div class="text-blue-950 md:p-1 p-2 rounded-md text-start w-28 h-15">
-                                <p style="line-height: 1.1;" class="text-sm font-semibold">Param 2</p>
-                                <p style="line-height: 1.1;" class="text-lg font-bold">390 Unit</p>
-                                <p style="line-height: 1.1;" class="md:text-[9px] text-[12px]">Between 350 Pa & 800 Pa
-                                </p>
+                            <div class="flex-2 text-[#0F1C40]   text-start">
+                                <p class="text-xs font-semibold">Running time</p>
+                                <p class="text-lg font-bold">340 h 23 m 20 s</p>
                             </div>
-                            <div class="text-blue-950 md:p-1 p-2 rounded-md text-start w-28 h-15">
-                                <p style="line-height: 1.1;" class="text-sm font-semibold">Param 3</p>
-                                <p style="line-height: 1.1;" class="text-lg font-bold">690 Unit</p>
-                                <p style="line-height: 1.1;" class="md:text-[9px] text-[12px]">Between 350 Pa & 800 Pa
-                                </p>
-                            </div>
-                            <div style="color: #FFB800;" class=" p-1 md:mt-0 mt-1 rounded-md text-start w-28 h-15">
-                                <div class="flex justify-between">
-                                    <p style="line-height: 1.1;" class="text-sm mr-3 font-semibold">Param 4</p>
-                                    <label for="toggleTwo"
-                                        class="flex mr-3 items-center cursor-pointer select-none text-dark dark:text-white">
-                                        <div class="relative">
-                                            <input type="checkbox" id="toggleTwo" class="peer sr-only" />
-                                            <!-- Background of the slider -->
-                                            <div
-                                                class="block  h-4 w-6 rounded-full box bg-gray-400 dark:bg-dark-2 peer-checked:bg-[#FFB800]">
-                                            </div>
-                                            <!-- Dot (the moving part) -->
-                                            <div
-                                                class="absolute flex items-center justify-center  h-2 w-2 transition bg-white rounded-full dot left-1 top-1 dark:bg-dark-5 peer-checked:translate-x-full peer-checked:bg-white peer-checked:dark:bg-white">
-                                            </div>
-                                        </div>
-                                    </label>
-                                </div>
-                                <p style="line-height: 1.1;" class="text-lg font-bold">330 Unit</p>
-                                <p style="line-height: 1.1;" class="md:text-[9px] text-[12px]">Between 350 u & 800 u</p>
-                            </div>
-                            <div class="text-blue-950 md:p-1 p-2 rounded-md text-start w-28 h-15">
-                                <p style="line-height: 1.1;" class="text-sm font-semibold">Param 5</p>
-                                <p style="line-height: 1.1;" class="text-lg font-bold">621 Unit</p>
-                                <p style="line-height: 1.1;" class="md:text-[9px] text-[12px]">Between 350 Pa & 800 Pa
-                                </p>
-                            </div>
-                            <div class="text-blue-950 md:p-1 p-2 rounded-md text-start w-28 h-15">
-                                <p style="line-height: 1.1;" class="text-sm font-semibold">Param 6</p>
-                                <p style="line-height: 1.1;" class="text-lg font-bold">290 Unit</p>
-                                <p style="line-height: 1.1;" class="md:text-[9px] text-[12px]">Between 250 U & 800 U</p>
-                            </div>
-                            <div style="color: #FF3334;" class="md:p-1 p-2 rounded-md text-start w-28 h-15">
-                                <div class="flex justify-between">
-                                    <p style="line-height: 1.1;" class="text-sm font-semibold">Param 7</p>
-                                    <label for="toggleThree"
-                                        class="flex mr-3 items-center cursor-pointer select-none text-dark dark:text-white">
-                                        <div class="relative">
-                                            <input type="checkbox" id="toggleThree" class="peer sr-only" />
-                                            <!-- Background of the slider -->
-                                            <div
-                                                class="block  h-4 w-6 rounded-full box bg-gray-400 dark:bg-dark-2 peer-checked:bg-[#FF3334]">
-                                            </div>
-                                            <!-- Dot (the moving part) -->
-                                            <div
-                                                class="absolute flex items-center justify-center  h-2 w-2 transition bg-white rounded-full dot left-1 top-1 dark:bg-dark-5 peer-checked:translate-x-full peer-checked:bg-white peer-checked:dark:bg-white">
-                                            </div>
-                                        </div>
-                                    </label>
-                                </div>
-                                <p style="line-height: 1.1;" class="text-lg font-bold">90 Unit</p>
-                                <p style="line-height: 1.1;" class="md:text-[9px] text-[12px]">Between 350 Pa & 800 Pa
-                                </p>
-                            </div>
-                            <div class="text-blue-950 md:p-1 p-2 rounded-md text-start w-28 h-15 ">
-                                <p style="line-height: 1.1;" class="text-sm font-semibold ">Param 8</p>
-                                <p style="line-height: 1.1;" class="text-lg font-bold">390 Unit</p>
-                                <p style="line-height: 1.1;" class="md:text-[9px] text-[12px]">Between 350 u & 800 u</p>
+                            <div class="flex-2   text-[#FF3334] text-start">
+                                <p class="text-xs font-semibold">Down time</p>
+                                <p class="text-lg font-bold">3 h 15 m 10 s</p>
                             </div>
                         </div>
-                        <!---------------------------2nd divvvvvv---------------------->
-                        <div class=" col-span-4 p-6 rounded-lg border-2 border-blue-950 shadow-md w-full max-w-3xl">
+                    </div>
 
-                            <!-- Temperature Bar -->
-                            <div class="flex justify-between items-center mb-1">
-                                <span style="color: #FF3334;" class=" text-xl font-bold">
-                                    Temperature</span>
-                            </div>
-                            <div class="flex w-full md:h-3 h-2.5 bg-gray-200  overflow-hidden ">
-                                <div class="flex flex-col justify-center overflow-hidden bg-green-500 text-xs text-white text-center whitespace-nowrap"
-                                    style="width: 50%" role="progressbar" aria-valuenow="25" aria-valuemin="0"
-                                    aria-valuemax="100"></div>
-                                <div class="flex flex-col justify-center overflow-hidden bg-red-500 md:text-xs text-[8px] font-semibold text-white text-center whitespace-nowrap"
-                                    style="width: 20%" role="progressbar" aria-valuenow="25" aria-valuemin="0"
-                                    aria-valuemax="100">90 °C</div>
-                            </div>
-                            <!-- Time Markers -->
-                            <div class="flex   justify-between w-full md:text-xs text-[8px]  mb-2">
-                                <div class="md:space-x-[58%] md:w-[65%] space-x-[58%] w-[64%]">
-                                    <span class="text-black ">0000 hrs</span>
-                                    <span class="text-[#FF3334] font-semibold ">1830 hrs</span>
-                                </div>
-                                <div class="space-x-5">
-                                    <span class="text-[#FF3334] font-semibold">2030 hrs</span>
-                                    <span class="text-black ">2359 hrs</span>
-                                </div>
-                            </div>
-
-                            <!------------------------------- Param 4 Bar ------------->
-                            <div class="flex justify-between items-center mb-1">
-                                <span style="color: #FFB800;" class=" text-xl font-bold">
-                                    Param 4</span>
-                            </div>
-                            <div class="flex w-full md:h-3 h-2.5 bg-gray-200  overflow-hidden ">
-                                <div class="flex flex-col justify-center overflow-hidden bg-green-500 text-xs text-white text-center whitespace-nowrap"
-                                    style="width: 40%" role="progressbar" aria-valuenow="25" aria-valuemin="0"
-                                    aria-valuemax="100"></div>
-                                <div class="flex flex-col justify-center overflow-hidden bg-yellow-400 md:text-xs text-[8px] font-semibold text-white text-center whitespace-nowrap"
-                                    style="width: 30%" role="progressbar" aria-valuenow="25" aria-valuemin="0"
-                                    aria-valuemax="100">305 Unit</div>
-                            </div>
-                            <!-- Time Markers -->
-                            <div class="flex   justify-between w-full md:text-xs text-[8px]  mb-2">
-                                <div class="md:space-x-[42%] md:w-[65%] space-x-[40%] w-[62%]">
-                                    <span class="text-black ">0000 hrs</span>
-                                    <span class="text-[#FFB800] font-semibold ">1830 hrs</span>
-                                </div>
-                                <div class="space-x-5">
-                                    <span class="text-[#FFB800] font-semibold">2030 hrs</span>
-                                    <span class="text-black ">2359 hrs</span>
-                                </div>
-                            </div>
-
-                            <!---------------------------------------- Param 7 Bar -->
-                            <div class="flex justify-between items-center mb-1">
-                                <span style="color: #FF3334;" class="  text-xl font-bold">
-                                    Param 7</span>
-                            </div>
-                            <div class="flex w-full md:h-3 h-2.5 bg-gray-200  overflow-hidden ">
-                                <div class="flex flex-col justify-center overflow-hidden bg-green-500 text-xs text-white text-center whitespace-nowrap"
-                                    style="width: 30%" role="progressbar" aria-valuenow="25" aria-valuemin="0"
-                                    aria-valuemax="100"></div>
-                                <div class="flex flex-col justify-center overflow-hidden bg-red-500 md:text-xs text-[8px] text-white font-semibold text-center whitespace-nowrap"
-                                    style="width: 40%" role="progressbar" aria-valuenow="25" aria-valuemin="0"
-                                    aria-valuemax="100">90 Unit</div>
-                            </div>
-                            <!-- Time Markers -->
-                            <div class="flex   justify-between w-full md:text-xs text-[8px]  mb-2">
-                                <div class="md:space-x-[27%] md:w-[65%] space-x-[25%] w-[64%]">
-                                    <span class="text-black ">0000 hrs</span>
-                                    <span class="text-[#FF3334] font-semibold ">1830 hrs</span>
-                                </div>
-                                <div class="space-x-5">
-                                    <span class="text-[#FF3334] font-semibold">2030 hrs</span>
-                                    <span class="text-black ">2359 hrs</span>
-                                </div>
-                            </div>
-
+                </div>
+                <div class="sm:flex sm:space-x-6  md:hidden visible ">
+                    <!-- Four equal divs -->
+                    <div class="flex sm:space-x-6 space-x-8">
+                        <div class="flex-2 text-[#0F1C40] m-1 p-1  text-start">
+                            <p class="text-sm ">Branch</p>
+                            <p class="text-lg   ">KLM Branch</p>
                         </div>
+                        <div class="flex-2 text-[#0F1C40] m-1 p-1  text-start">
+                            <p class="text-sm ">Location</p>
+                            <p class="text-lg ">J.K. Building 2.0</p>
+                        </div>
+                    </div>
+                    <div class="flex sm:space-x-6">
+                        <div class="flex-2 text-[#0F1C40] m-1 p-1  text-start">
+                            <p class="text-sm ">Running time</p>
+                            <p class="text-lg  font-bold">340 h 23 m 20 s</p>
+                        </div>
+                        <div class="flex-2  m-1 p-1 text-[#FF3334] text-start">
+                            <p class="text-sm ">Down time</p>
+                            <p class="text-lg  font-bold">3 h 15 m 10 s</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-----------------------Supercooling system div 2--------------------->
+                <div class="md:grid md:space-y-0 space-y-4 xl:grid-cols-7 md:grid-cols-5 gap-4 ">
+
+                    <div
+                        class="bg-gray-100 xl:col-span-3 md:col-span-2 grid grid-cols-3 gap-1 md:p-1 p-2   border-2 border-blue-950 rounded-md">
+                        <!-- Nine equal divs -->
+                        <div style="color: #FF3334;" class="md:p-1 p-2 rounded-md text-start w-28 h-15">
+                            <div class="flex justify-between">
+                                <p style="line-height: 1.1;" class="text-xs font-medium ">Temp</p>
+                                <label for="toggleOne"
+                                    class="flex mr-6 items-center cursor-pointer select-none text-dark dark:text-white">
+                                    <div class="relative scale-75 ">
+                                        <input type="checkbox" id="toggleOne" class="peer sr-only" />
+                                        <!-- Background of the slider -------->
+                                        <div
+                                            class="block  h-4 w-6 rounded-full box bg-gray-400 dark:bg-dark-2 peer-checked:bg-[#FF3334]">
+                                        </div>
+                                        <!-- Dot (the moving part) -------->
+                                        <div
+                                            class="absolute flex items-center justify-center  h-2 w-2 transition bg-white rounded-full dot left-1 top-1 dark:bg-dark-5 peer-checked:translate-x-full peer-checked:bg-white peer-checked:dark:bg-white">
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+                            <p style="line-height: 1.1;" class="text-lg ">105 °C</p>
+                            <p style="line-height: 1.1;" class="text-[6px]  ">Between 40 °C & 60 °C
+                            </p>
+                        </div>
+                        <div class="text-[#0F1C40] md:p-1 p-2 rounded-md text-start w-28 h-15">
+                            <p style="line-height: 1.1;" class="text-xs font-medium">Pressure</p>
+                            <p style="line-height: 1.1;" class="text-lg ">400 Pa</p>
+                            <p style="line-height: 1.1;" class="text-[6px]">Between 350 Pa & 800 Pa
+                            </p>
+                        </div>
+                        <div class="text-[#0F1C40] md:p-1 p-2 rounded-md text-start w-28 h-15">
+                            <p style="line-height: 1.1;" class="text-xs font-medium">Param 2</p>
+                            <p style="line-height: 1.1;" class="text-lg ">390 Unit</p>
+                            <p style="line-height: 1.1;" class="text-[6px]">Between 350 Pa & 800 Pa
+                            </p>
+                        </div>
+                        <div class="text-[#0F1C40] md:p-1 p-2 rounded-md text-start w-28 h-15">
+                            <p style="line-height: 1.1;" class="text-xs font-medium">Param 3</p>
+                            <p style="line-height: 1.1;" class="text-lg ">690 Unit</p>
+                            <p style="line-height: 1.1;" class="text-[6px]">Between 350 Pa & 800 Pa
+                            </p>
+                        </div>
+                        <div style="color: #FFB800;" class=" md:p-1 p-2 rounded-md text-start w-28 h-15">
+                            <div class="flex justify-between items-center ">
+                                <p style="line-height: 1.1;" class="text-xs  font-medium">Param 4</p>
+                                <label for="toggleTwo"
+                                    class="flex md:mr-3 mr-1  text-right items-center cursor-pointer select-none text-dark dark:text-white">
+                                    <div class="relative scale-75 mr-2">
+                                        <input type="checkbox" id="toggleTwo" class="peer sr-only" />
+                                        <!-- Background of the slider -->
+                                        <div
+                                            class="block  h-4 w-6 rounded-full box bg-gray-400 dark:bg-dark-2 peer-checked:bg-[#FFB800]">
+                                        </div>
+                                        <!-- Dot (the moving part) -->
+                                        <div
+                                            class="absolute flex items-center justify-center  h-2 w-2 transition bg-white rounded-full dot left-1 top-1 dark:bg-dark-5 peer-checked:translate-x-full peer-checked:bg-white peer-checked:dark:bg-white">
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+                            <p style="line-height: 1.1;" class="text-lg ">330 Unit</p>
+                            <p style="line-height: 1.1;" class="text-[6px]">Between 350 u & 800 u</p>
+                        </div>
+                        <div class="text-[#0F1C40] md:p-1 p-2 rounded-md text-start w-28 h-15">
+                            <p style="line-height: 1.1;" class="text-xs font-medium">Param 5</p>
+                            <p style="line-height: 1.1;" class="text-lg ">621 Unit</p>
+                            <p style="line-height: 1.1;" class="text-[6px]">Between 350 Pa & 800 Pa
+                            </p>
+                        </div>
+                        <div class="text-[#0F1C40] md:p-1 p-2 rounded-md text-start w-28 h-15">
+                            <p style="line-height: 1.1;" class="text-xs font-medium">Param 6</p>
+                            <p style="line-height: 1.1;" class="text-lg ">290 Unit</p>
+                            <p style="line-height: 1.1;" class="text-[6px]">Between 250 U & 800 U</p>
+                        </div>
+                        <div style="color: #FF3334;" class="md:p-1 p-2 rounded-md text-start w-28 h-15">
+                            <div class="flex justify-between">
+                                <p style="line-height: 1.1;" class="text-xs  font-medium">Param 7</p>
+                                <label for="toggleThree"
+                                    class="flex md:mr-3 mr-1 items-center cursor-pointer select-none text-dark dark:text-white">
+                                    <div class="relative scale-75 mr-2">
+                                        <input type="checkbox" id="toggleThree" class="peer sr-only" />
+                                        <!-- Background of the slider -->
+                                        <div
+                                            class="block  h-4 w-6 rounded-full box bg-gray-400 dark:bg-dark-2 peer-checked:bg-[#FF3334]">
+                                        </div>
+                                        <!-- Dot (the moving part) -->
+                                        <div
+                                            class="absolute flex items-center justify-center  h-2 w-2 transition bg-white rounded-full dot left-1 top-1 dark:bg-dark-5 peer-checked:translate-x-full peer-checked:bg-white peer-checked:dark:bg-white">
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+                            <p style="line-height: 1.1;" class="text-lg ">90 Unit</p>
+                            <p style="line-height: 1.1;" class="text-[6px]">Between 350 Pa & 800 Pa
+                            </p>
+                        </div>
+                        <div class="text-[#0F1C40] md:p-1 p-2 rounded-md text-start w-28 h-15 ">
+                            <p style="line-height: 1.1;" class="text-xs font-medium ">Param 8</p>
+                            <p style="line-height: 1.1;" class="text-lg ">390 Unit</p>
+                            <p style="line-height: 1.1;" class="text-[6px] ">Between 350 u & 800 u</p>
+                        </div>
+                    </div>
+                    <!---------------------------2nd divvvvvv---------------------->
+                    <div
+                        class=" xl:col-span-4 md:col-span-3 p-3 rounded-lg border-2 border-blue-950 shadow-md w-full max-w-3xl">
+
+                        <!-- Temperature Bar -->
+                        <div class="flex justify-between items-center mb-1">
+                            <span style="color: #FF3334;" class=" text-xl font-bold">
+                                Temperature</span>
+                        </div>
+                        <div class="flex w-full md:h-3 h-2.5 bg-gray-200  overflow-hidden ">
+                            <div class="flex flex-col justify-center overflow-hidden bg-[#008E28] text-xs text-white text-center whitespace-nowrap"
+                                style="width: 50%" role="progressbar" aria-valuenow="25" aria-valuemin="0"
+                                aria-valuemax="100"></div>
+                            <div class="flex flex-col justify-center overflow-hidden bg-[#FF3334] md:text-xs text-[8px] font-semibold text-white text-center whitespace-nowrap"
+                                style="width: 20%" role="progressbar" aria-valuenow="25" aria-valuemin="0"
+                                aria-valuemax="100">105 °C</div>
+                        </div>
+                        <!-- Time Markers -->
+                        <div class="flex   justify-between w-full md:text-xs text-[8px]  mb-2">
+                            <div class="md:space-x-[58%] md:w-[65%] space-x-[58%] w-[64%]">
+                                <span class="text-black ">0000 hrs</span>
+                                <span class="text-[#FF3334] font-semibold ">1830 hrs</span>
+                            </div>
+                            <div class="space-x-5">
+                                <span class="text-[#FF3334] font-semibold">2030 hrs</span>
+                                <span class="text-black ">2359 hrs</span>
+                            </div>
+                        </div>
+
+                        <!------------------------------- Param 4 Bar ------------->
+                        <div class="flex justify-between items-center mb-1">
+                            <span style="color: #FFB800;" class=" text-xl font-bold">
+                                Param 4</span>
+                        </div>
+                        <div class="flex w-full md:h-3 h-2.5 bg-gray-200  overflow-hidden ">
+                            <div class="flex flex-col justify-center overflow-hidden bg-[#008E28] text-xs text-white text-center whitespace-nowrap"
+                                style="width: 40%" role="progressbar" aria-valuenow="25" aria-valuemin="0"
+                                aria-valuemax="100"></div>
+                            <div class="flex flex-col justify-center overflow-hidden bg-[#FFB800] md:text-xs text-[8px] font-semibold text-white text-center whitespace-nowrap"
+                                style="width: 30%" role="progressbar" aria-valuenow="25" aria-valuemin="0"
+                                aria-valuemax="100">305 Unit</div>
+                        </div>
+                        <!-- Time Markers -->
+                        <div class="flex   justify-between w-full md:text-xs text-[8px]  mb-2">
+                            <div class="md:space-x-[42%] md:w-[65%] space-x-[40%] w-[62%]">
+                                <span class="text-black ">0000 hrs</span>
+                                <span class="text-[#FFB800] font-semibold ">1830 hrs</span>
+                            </div>
+                            <div class="space-x-5">
+                                <span class="text-[#FFB800] font-semibold">2030 hrs</span>
+                                <span class="text-black ">2359 hrs</span>
+                            </div>
+                        </div>
+
+                        <!---------------------------------------- Param 7 Bar -->
+                        <div class="flex justify-between items-center mb-1">
+                            <span style="color: #FF3334;" class="  text-xl font-bold">
+                                Param 7</span>
+                        </div>
+                        <div class="flex w-full md:h-3 h-2.5 bg-gray-200  overflow-hidden ">
+                            <div class="flex flex-col justify-center overflow-hidden bg-[#008E28] text-xs text-white text-center whitespace-nowrap"
+                                style="width: 30%" role="progressbar" aria-valuenow="25" aria-valuemin="0"
+                                aria-valuemax="100"></div>
+                            <div class="flex flex-col justify-center overflow-hidden bg-[#FF3334] md:text-xs text-[8px] text-white font-semibold text-center whitespace-nowrap"
+                                style="width: 40%" role="progressbar" aria-valuenow="25" aria-valuemin="0"
+                                aria-valuemax="100">90 Unit</div>
+                        </div>
+                        <!-- Time Markers -->
+                        <div class="flex   justify-between w-full md:text-xs text-[8px]  mb-2">
+                            <div class="md:space-x-[27%] md:w-[65%] space-x-[25%] w-[64%]">
+                                <span class="text-black ">0000 hrs</span>
+                                <span class="text-[#FF3334] font-semibold ">1830 hrs</span>
+                            </div>
+                            <div class="space-x-5">
+                                <span class="text-[#FF3334] font-semibold">2030 hrs</span>
+                                <span class="text-black ">2359 hrs</span>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
     <!------ Upcoming Orders -->
-    <div class=" p-6  ">
-        <h2 class="text-2xl font-bold mb-4 px-4">Upcoming Orders</h2>
-        <div class="bg-gray-100 p-6 rounded-lg shadow-lg m-2">
-            <!-- First Row: 4 divs with different sizes -->
-            <div class="grid grid-cols-12 gap-4 mb-4">
-                <div class="col-span-2  p-2">
-                    <img src="../images/img1.jpg" class="h-40 w-46 object-cover rounded-md border-2 border-blue-950">
-                </div>
-                <div class="col-span-2  ">
-                    <div>
-                        <div class="flex   justify-between items-center ">
-                            <div class="flex justify-center space-x-1 items-center">
-                                <h2 class="text-blue-950 text-[20px] font-extrabold">Product Pump</h2>
-                            </div>
-                            <div class="flex space-x-1">
-
-                                <button
-                                    class="bg-green-500 justify-center text-xs font-bold text-center items-center p-3 px-4 text-white  rounded-md">
-                                    shipped</button>
-                            </div>
+        <div class=" md:px-5  px-2">
+            <h2 class="text-2xl font-bold text-[#0F1C40] mb-4 px-4">Upcoming Orders</h2>
+            <div class="bg-gray-100 p-6 rounded-lg shadow-lg m-2">
+                <!-- First Row: 4 divs with different sizes -->
+                <div class="grid lg:grid-cols-12  mb-4">
+                    <div class=" col-span-4 grid sm:grid-cols-5 mb-3 lg:mr-2">
+                        <div class="col-span-2 p-2">
+                            <img src="../images/img1.jpg" alt="abc"
+                                class="lg:w-full lg:h-full sm:h-auto md:w-auto object-cover rounded-md border-2 border-blue-950">
                         </div>
-                        <h2 class="font-semibold">Pressure 300 Pa</h2>
-                        <p class="text-xs mt-2">It is a long established fact that a reader will be distracted by the
-                            readable content of a page when looking at its
-                            layout.It is a long established fact that a reader will be distracted by the readable
-                            content of
-                            a page when looking at its
-                    </div>
-                </div>
-                <div class="col-span-6  p-0">
-                    <!-- Progress Bar Container -->
-                    <div class="bg-white shadow-md rounded-lg border-2 border-green-500">
-
-                        <!-- Progress Bar Line -->
-
-                        <div class="flex justify-between items-center relative  p-4">
-
-
-                            <!-- Progress Circles -->
-                            <div
-                                class="relative z-10 w-10 h-10 bg-green-500 text-white rounded-full flex items-center justify-center font-bold">
-                                1</div>
-                            <div class="flex-1 h-1 bg-green-500"></div>
-                            <div
-                                class="relative z-10 w-10 h-10 bg-green-500 text-white rounded-full flex items-center justify-center font-bold">
-                                2</div>
-                            <div class="flex-1 h-1 bg-green-500"></div>
-                            <div
-                                class="relative z-10 w-10 h-10 bg-green-500 text-white rounded-full flex items-center justify-center font-bold">
-                                3</div>
-                            <div class="flex-1 h-1 bg-green-500"></div>
-                            <div
-                                class="relative z-10 w-10 h-10 bg-green-500 text-white rounded-full flex items-center justify-center font-bold">
-                                4</div>
-                            <div class="flex-1 h-1 bg-green-500"></div>
-                            <div
-                                class="relative z-10 w-10 h-10 bg-green-500 text-white rounded-full flex items-center justify-center font-bold">
-                                5</div>
-                            <div class="flex-1 h-1 bg-gray-300"></div>
-                            <div
-                                class="relative z-10 w-10 h-10 bg-gray-300 text-gray-400 rounded-full flex items-center justify-center font-bold">
-                                6</div>
-                        </div>
-
-
-
-
-                        <!-- Step Descriptions -->
-                        <div class="grid grid-cols-6 gap-1 text-center">
-                            <!-- Step 1 -->
+                        <div class="col-span-3">
                             <div>
-                                <p class="font-bold text-xs text-gray-700">Order Placed</p>
-                                <p class="text-xs text-gray-500">Feb 12, 2024</p>
-                                <ul class="text-xs text-gray-500 mt-2 ">
-                                    <li>• Order processed</li>
-                                    <li class="text-left px-2.5">• Order status &nbsp&nbsp&nbspupdated - 1</li>
-
-                                </ul>
-                            </div>
-
-                            <!-- Step 2 -->
-                            <div>
-                                <p class="font-bold text-xs text-gray-700">Out from Workshop</p>
-                                <p class="text-xs text-gray-500">Feb 14, 2024</p>
-                                <ul class="text-xs text-gray-500 mt-2">
-                                    <li>• Order processed</li>
-                                    <li class="text-left px-2.5 mb-3">• Order status &nbsp&nbsp&nbspupdated - 1</li>
-
-                                </ul>
-                            </div>
-
-                            <!-- Step 3 -->
-                            <div>
-                                <p class="font-bold text-xs text-gray-700">Shipping Started</p>
-                                <p class="text-xs text-gray-500">Feb 15, 2024</p>
-                                <ul class="text-xs text-gray-500 mt-2">
-                                    <li>• Order processed</li>
-                                    <li class="text-left px-2.5">• Order status &nbsp&nbsp&nbspupdated - 1</li>
-
-                                </ul>
-                            </div>
-
-                            <!-- Step 4 -->
-                            <div>
-                                <p class="font-bold text-xs text-gray-700">Shipping Booked</p>
-                                <p class="text-xs text-gray-500">Feb 16, 2024</p>
-                                <ul class="text-xs text-gray-500 mt-2">
-                                    <li>• Order processed</li>
-                                    <li class="text-left px-2.5">• Order status &nbsp&nbsp&nbspupdated - 1</li>
-
-                                </ul>
-                            </div>
-
-                            <!-- Step 5 -->
-                            <div>
-                                <p class="font-bold text-xs text-gray-700">Shipped</p>
-                                <p class="text-xs text-gray-500">Feb 18, 2024</p>
-                                <ul class="text-xs text-gray-500 mt-2">
-                                    <li>• Order processed</li>
-                                    <li class="text-left px-2.5">• Order status &nbsp&nbsp&nbspupdated - 1</li>
-
-                                </ul>
-                            </div>
-
-                            <!-- Step 6 (Inactive) -->
-                            <div>
-                                <p class="font-bold text-xs text-gray-400">Delivered</p>
-                                <p class="text-xs text-gray-400">Feb 20, 2024</p>
-                                <ul class="text-xs text-gray-400 mt-2">
-                                    <li>• Order processed</li>
-                                    <li class="text-left px-2.5">• Order status &nbsp&nbsp&nbspupdated - 1</li>
-
-                                </ul>
+                                <div class="flex justify-between items-center">
+                                    <div class="flex justify-center space-x-1 items-center">
+                                        <h2 class="text-[#0F1C40] text-[20px] font-extrabold">Product Pump</h2>
+                                    </div>
+                                    <div class="flex space-x-1">
+                                        <button
+                                            class="bg-[#008E28] justify-center text-xs font-bold text-center items-center p-3 px-4 text-white rounded-md">
+                                            shipped
+                                        </button>
+                                    </div>
+                                </div>
+                                <h2 class="font-semibold text-[#0F1C40] ">Pressure 300 Pa</h2>
+                                <p class="text-xs text-[#0F1C40] mt-2">
+                                    It is a long established fact that a reader will be distracted by the readable content of a
+                                    page when
+                                    looking at its layout. It is a long established fact that a reader will be distracted by the
+                                    readable
+                                    content of a page when looking at its.
+                                </p>
                             </div>
                         </div>
                     </div>
-
-                </div>
-                <div class="col-span-2 p-2">
-                    <div class="text-right">
-                        <p class="font-semibold mt-3">Payment</p>
-                        <p>Card</p>
-                        <p class="font-semibold">Full Price</p>
-                        <p class="text-3xl font-bold">200 000 Kr</p>
-                        <a href="abc" class="text-xs font-semibold">Download Invoice</a>
-                    </div>
-                </div>
-            </div>
-
-
-            <!-- Separator Line -->
-            <hr class="border border-gray-400 mb-4">
-
-            <!-- Second Row: 4 divs with different sizes -->
-            <div class="grid grid-cols-12 gap-4 mb-4">
-                <div class="col-span-2  p-2">
-                    <img src="../images/img1.jpg" alt="abc"
-                        class="bg-slate-500 h-40 w-46 object-cover rounded-md border-2 border-blue-950">
-                </div>
-                <div class="col-span-2  ">
-                    <div>
-                        <div class="flex   justify-between items-center ">
-                            <div class="flex justify-center space-x-1 items-center">
-                                <h2 class="text-blue-950 text-xl font-bold">Exhaust</h2>
+        
+                    <div
+                        class="col-span-7 bg-white overflow-x-auto xl:overflow-hidden shadow-md rounded-lg border-2 border-[#008E28] ">
+                        <!-- Progress Bar Container-------->
+                        <div class="min-w-[800px] lg:min-w-full   mb-2 h-full">
+        
+                            <!-- Progress Bar Line -->
+        
+                            <div class="flex justify-between items-center relative  p-3 px-10">
+        
+        
+                                <!-- Progress Circles -->
+                                <div
+                                    class="relative z-10 w-10 h-10 bg-[#008E28] text-white rounded-full flex items-center justify-center font-bold">
+                                    1</div>
+                                <div class="flex-1 h-1 bg-[#008E28]"></div>
+                                <div
+                                    class="relative z-10 w-10 h-10 bg-[#008E28] text-white rounded-full flex items-center justify-center font-bold">
+                                    2</div>
+                                <div class="flex-1 h-1 bg-[#008E28]"></div>
+                                <div
+                                    class="relative z-10 w-10 h-10 bg-[#008E28] text-white rounded-full flex items-center justify-center font-bold">
+                                    3</div>
+                                <div class="flex-1 h-1 bg-[#008E28]"></div>
+                                <div
+                                    class="relative z-10 w-10 h-10 bg-[#008E28] text-white rounded-full flex items-center justify-center font-bold">
+                                    4</div>
+                                <div class="flex-1 h-1 bg-[#008E28]"></div>
+                                <div
+                                    class="relative z-10 w-10 h-10 bg-[#008E28] text-white rounded-full flex items-center justify-center font-bold">
+                                    5</div>
+                                <div class="flex-1 h-1 bg-gray-300"></div>
+                                <div
+                                    class="relative z-10 w-10 h-10 bg-gray-300 text-gray-400 rounded-full flex items-center justify-center font-bold">
+                                    6</div>
                             </div>
-                            <div class="flex space-x-1">
-
-                                <button
-                                    class="bg-green-500 justify-center text-xs font-bold text-center items-center p-3 px-4 text-white px-2 p-1 rounded-md">
-                                    Shipped Booked</button>
+        
+        
+        
+        
+                            <!-- Step Descriptions -->
+                            <div class="grid grid-cols-6 gap-1 text-center">
+                                <!-- Step 1 -->
+                                <div>
+                                    <p class="font-bold text-xs text-gray-700">Order Placed</p>
+                                    <p class="text-xs text-gray-500">Feb 12, 2024</p>
+                                    <ul class="text-[10px] list-disc list-inside text-[#0F1C40] mt-2 text-start px-1 ">
+                                        <li>Order processed</li>
+                                        <li class="text-left ">Order status updated - 1</li>
+                                        <li class="text-left ">Order status updated - 2</li>
+                                        <li class="text-left ">Order status updated - 3</li>
+                                    </ul>
+                                </div>
+        
+                                <!-- Step 2 -->
+                                <div>
+                                    <p class="font-bold text-xs text-gray-700">Out from Workshop</p>
+                                    <p class="text-xs text-[#0F1C40]">Feb 14, 2024</p>
+                                    <ul class="text-[10px] list-disc list-inside text-[#0F1C40] mt-2 text-start px-1 ">
+                                        <li>Order processed</li>
+                                        <li class="text-left ">Order status updated - 1</li>
+                                        <li class="text-left ">Order status updated - 2</li>
+                                        <li class="text-left ">Order status updated - 3</li>
+                                    </ul>
+                                </div>
+        
+                                <!-- Step 3 -->
+                                <div>
+                                    <p class="font-bold text-xs text-gray-700">Shipping Started</p>
+                                    <p class="text-xs text-[#0F1C40]">Feb 15, 2024</p>
+                                    <ul class="text-[10px] list-disc list-inside text-[#0F1C40] mt-2 text-start px-1 ">
+                                        <li>Order processed</li>
+                                        <li class="text-left ">Order status updated - 1</li>
+                                        <li class="text-left ">Order status updated - 2</li>
+                                        <li class="text-left ">Order status updated - 3</li>
+                                    </ul>
+                                </div>
+        
+                                <!-- Step 4 -->
+                                <div>
+                                    <p class="font-bold text-xs text-gray-700">Shipping Booked</p>
+                                    <p class="text-xs text-[#0F1C40]">Feb 16, 2024</p>
+                                    <ul class="text-[10px] list-disc list-inside text-[#0F1C40] mt-2 text-start px-1 ">
+                                        <li>Order processed</li>
+                                        <li class="text-left ">Order status updated - 1</li>
+                                        <li class="text-left ">Order status updated - 2</li>
+                                        <li class="text-left ">Order status updated - 3</li>
+                                    </ul>
+                                </div>
+        
+                                <!-- Step 5 -->
+                                <div>
+                                    <p class="font-bold text-xs text-gray-700">Shipped</p>
+                                    <p class="text-xs text-[#0F1C40]">Feb 18, 2024</p>
+                                    <ul class="text-[10px] list-disc list-inside text-[#0F1C40] mt-2 text-start px-1 ">
+                                        <li>Order processed</li>
+                                        <li class="text-left ">Order status updated - 1</li>
+                                        <li class="text-left ">Order status updated - 2</li>
+                                        <li class="text-left ">Order status updated - 3</li>
+                                    </ul>
+                                </div>
+        
+                                <!-- Step 6 (Inactive) -->
+                                <div>
+                                    <p class="font-bold text-xs text-gray-400">Delivered</p>
+                                    <p class="text-xs text-gray-400">Feb 20, 2024</p>
+                                    <ul class="text-[10px] list-disc list-inside text-gray-400 mt-2 text-start px-1 ">
+                                        <li>Order processed</li>
+                                        <li class="text-left ">Order status updated - 1</li>
+                                        <li class="text-left ">Order status updated - 2</li>
+                                        <li class="text-left ">Order status updated - 3</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                        <h2 class="font-semibold">Pressure 300 Pa</h2>
-                        <p class="text-xs mt-2">It is a long established fact that a reader will be distracted by the
-                            readable content of
-                            a page when looking at itsIt is a long established fact that a reader will be distracted by
-                            the readable content of
-                            a page when looking at its
-                            layout.</p>
+        
                     </div>
-                </div>
-                <div class="col-span-6  ">
-                    <div class="bg-white shadow-md rounded-lg border-2 border-green-500">
-
-                        <!-- Progress Bar Line -->
-
-                        <div class="flex justify-between items-center relative  p-4">
-
-
-                            <!-- Progress Circles -->
-                            <div
-                                class="relative z-10 w-10 h-10 bg-green-500 text-white rounded-full flex items-center justify-center font-bold">
-                                1</div>
-                            <div class="flex-1 h-1 bg-green-500"></div>
-                            <div
-                                class="relative z-10 w-10 h-10 bg-green-500 text-white rounded-full flex items-center justify-center font-bold">
-                                2</div>
-                            <div class="flex-1 h-1 bg-green-500"></div>
-                            <div
-                                class="relative z-10 w-10 h-10 bg-green-500 text-white rounded-full flex items-center justify-center font-bold">
-                                3</div>
-                            <div class="flex-1 h-1 bg-green-500"></div>
-                            <div
-                                class="relative z-10 w-10 h-10 bg-green-500 text-white rounded-full flex items-center justify-center font-bold">
-                                4</div>
-                            <div class="flex-1 h-1 bg-gray-300"></div>
-                            <div
-                                class="relative z-10 w-10 h-10 bg-gray-300 text-white rounded-full flex items-center justify-center font-bold">
-                                5</div>
-                            <div class="flex-1 h-1 bg-gray-300"></div>
-                            <div
-                                class="relative z-10 w-10 h-10 bg-gray-300 text-gray-400 rounded-full flex items-center justify-center font-bold">
-                                6</div>
-                        </div>
-
-
-
-
-                        <!-- Step Descriptions -->
-                        <div class="grid grid-cols-6 gap-1 text-center">
-                            <!-- Step 1 -->
-                            <div>
-                                <p class="font-bold text-xs text-gray-700">Order Placed</p>
-                                <p class="text-xs text-gray-500">Feb 12, 2024</p>
-                                <ul class="text-xs text-gray-500 mt-2 ">
-                                    <li>• Order processed</li>
-                                    <li class="text-left px-2.5">• Order status &nbsp&nbsp&nbspupdated - 1</li>
-
-                                </ul>
-                            </div>
-
-                            <!-- Step 2 -->
-                            <div>
-                                <p class="font-bold text-xs text-gray-700">Out from Workshop</p>
-                                <p class="text-xs text-gray-500">Feb 14, 2024</p>
-                                <ul class="text-xs text-gray-500 mt-2">
-                                    <li>• Order processed</li>
-                                    <li class="text-left px-2.5 mb-3">• Order status &nbsp&nbsp&nbspupdated - 1</li>
-
-                                </ul>
-                            </div>
-
-                            <!-- Step 3 -->
-                            <div>
-                                <p class="font-bold text-xs text-gray-700">Shipping Started</p>
-                                <p class="text-xs text-gray-500">Feb 15, 2024</p>
-                                <ul class="text-xs text-gray-500 mt-2">
-                                    <li>• Order processed</li>
-                                    <li class="text-left px-2.5">• Order status &nbsp&nbsp&nbspupdated - 1</li>
-
-                                </ul>
-                            </div>
-
-                            <!-- Step 4 -->
-                            <div>
-                                <p class="font-bold text-xs text-gray-700">Shipping Booked</p>
-                                <p class="text-xs text-gray-500">Feb 16, 2024</p>
-                                <ul class="text-xs text-gray-500 mt-2">
-                                    <li>• Order processed</li>
-                                    <li class="text-left px-2.5">• Order status &nbsp&nbsp&nbspupdated - 1</li>
-
-                                </ul>
-                            </div>
-
-                            <!-- Step 5 -->
-                            <div>
-                                <p class="font-bold text-xs text-gray-400">Shipped</p>
-                                <p class="text-xs text-gray-400">Feb 18, 2024</p>
-                                <ul class="text-xs text-gray-400 mt-2">
-                                    <li>• Order processed</li>
-                                    <li class="text-left px-2.5">• Order status &nbsp&nbsp&nbspupdated - 1</li>
-
-                                </ul>
-                            </div>
-
-                            <!-- Step 6 (Inactive) -->
-                            <div>
-                                <p class="font-bold text-xs text-gray-400">Delivered</p>
-                                <p class="text-xs text-gray-400">Feb 20, 2024</p>
-                                <ul class="text-xs text-gray-400 mt-2">
-                                    <li>• Order processed</li>
-                                    <li class="text-left px-2.5">• Order status &nbsp&nbsp&nbspupdated - 1</li>
-
-                                </ul>
-                            </div>
+                    <div class="col-span-1 mt-2 lg:mt-0">
+                        <div class="lg:text-right text-[#0F1C40] text-left">
+                            <p class="font-semibold m">Payment</p>
+                            <p>Card</p>
+                            <p class="font-semibold">Full Price</p>
+                            <p class="text-3xl font-bold">200 000 Kr</p>
+                            <a href="abc" class="text-xs font-semibold">Download Invoice</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-span-2  p-2 ">
-                    <div class="text-right ">
-                        <p class="font-semibold mt-3">Payment</p>
-                        <p>Card</p>
-                        <p class="font-semibold">Full Price</p>
-                        <p class="text-3xl font-bold">136 898 Kr</p>
-                        <a href="abc" class="text-xs font-semibold">Download Invoice</a>
+        
+        
+                <!-- Separator Line -->
+                <hr class="border-2 border-gray-300 mb-4">
+        
+                <!-- Second Row: 4 divs with different sizes -->
+                <div class="grid lg:grid-cols-12  mb-4">
+                    <div class=" col-span-4 grid sm:grid-cols-5 mb-3 lg:mr-2">
+                        <div class="col-span-2 p-2">
+                            <img src="../images/img1.jpg" alt="abc"
+                                class="lg:w-full lg:h-full sm:w-auto sm:h-auto object-cover rounded-md border-2 border-[#0F1C40]">
+                        </div>
+                        <div class="col-span-3">
+                            <div>
+                                <div class="flex justify-between items-center">
+                                    <div class="flex justify-center space-x-1 items-center">
+                                        <h2 class="text-[#0F1C40] text-2xl font-extrabold">Exhaust</h2>
+                                    </div>
+                                    <div class="flex space-x-1">
+                                        <button
+                                            class="bg-[#008E28] justify-center text-xs font-bold text-center items-center p-3 px-4 text-white rounded-md">
+                                            Shipping Booked
+                                        </button>
+                                    </div>
+                                </div>
+                                <h2 class="font-semibold text-[#0F1C40]">Pressure 300 Pa</h2>
+                                <p class="text-xs mt-2 text-[#0F1C40]">
+                                    It is a long established fact that a reader will be distracted by the readable content of a
+                                    page
+                                    when
+                                    looking at its layout. It is a long established fact that a reader will be distracted by the
+                                    readable
+                                    content of a page when looking at its.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div
+                        class="col-span-7 bg-white overflow-x-auto xl:overflow-hidden shadow-md rounded-lg border-2 border-[#008E28] p-0">
+                        <!-- Progress Bar Container -->
+                        <div class="min-w-[800px] xl:min-w-full  mb-2  h-full">
+        
+                            <!-- Progress Bar Line -->
+        
+                            <div class="flex justify-between items-center relative  p-3 px-10">
+        
+        
+                                <!-- Progress Circles -->
+                                <div
+                                    class="relative z-10 w-10 h-10 bg-[#008E28] text-white rounded-full flex items-center justify-center font-bold">
+                                    1</div>
+                                <div class="flex-1 h-1 bg-[#008E28]"></div>
+                                <div
+                                    class="relative z-10 w-10 h-10 bg-[#008E28] text-white rounded-full flex items-center justify-center font-bold">
+                                    2</div>
+                                <div class="flex-1 h-1 bg-[#008E28]"></div>
+                                <div
+                                    class="relative z-10 w-10 h-10 bg-[#008E28] text-white rounded-full flex items-center justify-center font-bold">
+                                    3</div>
+                                <div class="flex-1 h-1 bg-[#008E28]"></div>
+                                <div
+                                    class="relative z-10 w-10 h-10 bg-[#008E28] text-white rounded-full flex items-center justify-center font-bold">
+                                    4</div>
+                                <div class="flex-1 h-1 bg-gray-300"></div>
+                                <div
+                                    class="relative z-10 w-10 h-10 bg-gray-300 text-white rounded-full flex items-center justify-center font-bold">
+                                    5</div>
+                                <div class="flex-1 h-1 bg-gray-300"></div>
+                                <div
+                                    class="relative z-10 w-10 h-10 bg-gray-300 text-gray-400 rounded-full flex items-center justify-center font-bold">
+                                    6</div>
+                            </div>
+        
+        
+        
+        
+                            <!-- Step Descriptions -->
+                            <div class="grid grid-cols-6 gap-1 text-center">
+                                <!-- Step 1 -->
+                                <div>
+                                    <p class="font-bold text-xs text-gray-700">Order Placed</p>
+                                    <p class="text-xs text-[#0F1C40]">Feb 12, 2024</p>
+                                    <ul class="text-[10px] list-disc list-inside text-[#0F1C40] mt-2 text-start px-1 ">
+                                        <li>Order processed</li>
+                                        <li class="text-left ">Order status updated - 1</li>
+                                        <li class="text-left ">Order status updated - 2</li>
+                                        <li class="text-left ">Order status updated - 3</li>
+                                    </ul>
+                                </div>
+        
+                                <!-- Step 2 -->
+                                <div>
+                                    <p class="font-bold text-xs text-gray-700">Out from Workshop</p>
+                                    <p class="text-xs text-[#0F1C40]">Feb 14, 2024</p>
+                                    <ul class="text-[10px] list-disc list-inside text-[#0F1C40] mt-2 text-start px-1 ">
+                                        <li>Order processed</li>
+                                        <li class="text-left ">Order status updated - 1</li>
+                                        <li class="text-left ">Order status updated - 2</li>
+                                        <li class="text-left ">Order status updated - 3</li>
+                                    </ul>
+                                </div>
+        
+                                <!-- Step 3 -->
+                                <div>
+                                    <p class="font-bold text-xs text-gray-700">Shipping Started</p>
+                                    <p class="text-xs text-[#0F1C40]">Feb 15, 2024</p>
+                                    <ul class="text-[10px] list-disc list-inside text-[#0F1C40] mt-2 text-start px-1 ">
+                                        <li>Order processed</li>
+                                        <li class="text-left ">Order status updated - 1</li>
+                                        <li class="text-left ">Order status updated - 2</li>
+                                        <li class="text-left ">Order status updated - 3</li>
+                                    </ul>
+                                </div>
+        
+                                <!-- Step 4 -->
+                                <div>
+                                    <p class="font-bold text-xs text-gray-700">Shipping Booked</p>
+                                    <p class="text-xs text-[#0F1C40]">Feb 16, 2024</p>
+                                    <ul class="text-[10px] list-disc list-inside text-[#0F1C40] mt-2 text-start px-1 ">
+                                        <li>Order processed</li>
+                                        <li class="text-left ">Order status updated - 1</li>
+                                        <li class="text-left ">Order status updated - 2</li>
+                                        <li class="text-left ">Order status updated - 3</li>
+                                    </ul>
+                                </div>
+        
+                                <!-- Step 5 -->
+                                <div>
+                                    <p class="font-bold text-xs text-gray-400">Shipped</p>
+                                    <p class="text-xs text-gray-400">Feb 18, 2024</p>
+                                    <ul class="text-[10px] list-disc list-inside text-gray-400 mt-2 text-start px-1 ">
+                                        <li>Order processed</li>
+                                        <li class="text-left ">Order status updated - 1</li>
+                                        <li class="text-left ">Order status updated - 2</li>
+                                        <li class="text-left ">Order status updated - 3</li>
+                                    </ul>
+                                </div>
+        
+                                <!-- Step 6 (Inactive) -->
+                                <div>
+                                    <p class="font-bold text-xs text-gray-400">Delivered</p>
+                                    <p class="text-xs text-gray-400">Feb 20, 2024</p>
+                                    <ul class="text-[10px] list-disc list-inside text-gray-400 mt-2 text-start px-1 ">
+                                        <li>Order processed</li>
+                                        <li class="text-left ">Order status updated - 1</li>
+                                        <li class="text-left ">Order status updated - 2</li>
+                                        <li class="text-left ">Order status updated - 3</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+        
+                    </div>
+                    <div class="col-span-1 mt-2 lg:mt-0">
+                        <div class="lg:text-right text-[#0F1C40] text-left">
+                            <p class="font-semibold m">Payment</p>
+                            <p>Card</p>
+                            <p class="font-semibold">Full Price</p>
+                            <p class="text-3xl font-bold">200 000 Kr</p>
+                            <a href="abc" class="text-xs font-semibold">Download Invoice</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
 
     <!----------- Appointments ----------->
-    <h2 class="text-2xl font-bold mb-4 ml-8">Appointments</h2>
-    <div class="bg-gray-100 m-8 p-4 rounded-lg shadow-lg">
-
-        <div class="md:grid lg:grid-cols-3 justify-around gap-6 p-19">
+    <div class="p-8">
+    <h2 class="text-2xl font-bold sm:px-2 mb-4">Appointments</h2>
+    <div class="bg-gray-100 p-6  rounded-lg shadow-lg sm:overflow-x-auto xl:overflow-hidden overflow-hidden">
+            
+        <div class=" sm:min-w-[800px] grid sm:grid-cols-3 justify-around gap-6 md:p-19 ">
             <!--------------------- Appointment 1 --------------------------->
-            <div class=" w-full bg- shadow-md rounded-t-lg rounded-b-md border-2 border-[#0F1C40]">
-                <div class="bg-[#0F1C40] text-white p-4 rounded-t-md">
+            <div class=" w-full shadow-md rounded-t-lg rounded-b-md border-2 border-[#0F1C40]">
+                <div class="bg-[#0F1C40] text-white p-4 rounded-t-md ">
                     <div class="  flex justify-between">
                         <div>
                             <p class="text-sm font-medium">Full Service</p>
-                            <p class="text-3xl font-bold">Venturi Dryer</p>
+                            <p class="lg:text-3xl text-xl font-bold">Venturi Dryer</p>
                         </div>
                         <div class="text-right">
                             <p class="font-bold text-lg">30 h</p>
                         </div>
                     </div>
                 </div>
-                <div class="p-4 ">
-                    <div class=" text-blue-950 flex justify-between mb-2">
+                <div class="p-4 bg-white rounded-b-lg">
+                    <div class=" text-[#0F1C40]  flex justify-between mb-2">
                         <div>
                             <p class="text-sm font-bold">Appointment</p>
                             <p class="md:text-2xl ">Feb 28, 2024</p>
@@ -859,55 +894,57 @@
                         </div>
                     </div>
 
-                    <div class="flex justify-between items-center border-t pt-4 mt-4 ">
-                        <div class="flex items-center space-x-2">
-                            <div class="bg-[#0F1C40] text-white rounded-full p-2">
-                                <!-- Person icon (user icon) -->
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                                    class="size-6">
-                                    <path fill-rule="evenodd"
-                                        d="M18.685 19.097A9.723 9.723 0 0 0 21.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 0 0 3.065 7.097A9.716 9.716 0 0 0 12 21.75a9.716 9.716 0 0 0 6.685-2.653Zm-12.54-1.285A7.486 7.486 0 0 1 12 15a7.486 7.486 0 0 1 5.855 2.812A8.224 8.224 0 0 1 12 20.25a8.224 8.224 0 0 1-5.855-2.438ZM15.75 9a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"
-                                        clip-rule="evenodd" />
-                                </svg>
-
+                    <div class="lg:flex justify-between items-center border-t pt-4 mt-4">
+                        <div class="flex">
+                            <div class="flex items-center space-x-2">
+                                <div class="text-[#0F1C40] rounded-full p-2">
+                                    <!-- Person icon (user icon) -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-8">
+                                        <path fill-rule="evenodd"
+                                            d="M18.685 19.097A9.723 9.723 0 0 0 21.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 0 0 3.065 7.097A9.716 9.716 0 0 0 12 21.75a9.716 9.716 0 0 0 6.685-2.653Zm-12.54-1.285A7.486 7.486 0 0 1 12 15a7.486 7.486 0 0 1 5.855 2.812A8.224 8.224 0 0 1 12 20.25a8.224 8.224 0 0 1-5.855-2.438ZM15.75 9a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                    
+                                </div>
+                                <p class="text-sm font-bold">John Doe</p>
                             </div>
-                            <p class="text-sm font-bold">John Doe</p>
-                        </div>
-                        <div class="flex items-center space-x-2">
-                            <div class="text-blue-950 bg-white rounded-full p">
-                                <!-- Location icon (pin icon) -->
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                                    class="size-6">
-                                    <path fill-rule="evenodd"
-                                        d="m11.54 22.351.07.04.028.016a.76.76 0 0 0 .723 0l.028-.015.071-.041a16.975 16.975 0 0 0 1.144-.742 19.58 19.58 0 0 0 2.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 0 0-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 0 0 2.682 2.282 16.975 16.975 0 0 0 1.145.742ZM12 13.5a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"
-                                        clip-rule="evenodd" />
-                                </svg>
-
+                            <div class="flex items-center space-x-2">
+                                <div class="text-[#0F1C40] bg-white rounded-full p-2">
+                                    <!-- Location icon (pin icon) -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-8">
+                                        <path fill-rule="evenodd"
+                                            d="m11.54 22.351.07.04.028.016a.76.76 0 0 0 .723 0l.028-.015.071-.041a16.975 16.975 0 0 0 1.144-.742 19.58 19.58 0 0 0 2.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 0 0-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 0 0 2.682 2.282 16.975 16.975 0 0 0 1.145.742ZM12 13.5a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                    
+                                </div>
+                                <p class="text-sm font-bold">Location</p>
                             </div>
-                            <p class="text-sm font-bold">Location</p>
                         </div>
-                        <button
-                            class="bg-white border-2 border-blue-950 text-blue-950 rounded-lg px-4 py-1 text-sm font-bold hover:bg-gray-100">
-                            Details
-                        </button>
+                        <div class="sm:mt-2  text-center">
+                            <button
+                                class="bg-white border-2 border-blue-950 text-[#0F1C40] rounded-lg px-4 py-1 text-sm font-bold hover:bg-gray-100">
+                                Details
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
             <!------------------------- Appointment 2 ---------------->
-            <div class="  bg-white shadow-md rounded-t-lg rounded-b-md border-2 border-[#0F1C40]">
-                <div class="bg-[#0F1C40] text-white rounded-t-md p-4 ">
+            <div class=" w-full shadow-md rounded-t-lg rounded-b-md border-2 border-[#0F1C40]">
+                <div class="bg-[#0F1C40] text-white p-4 rounded-t-md ">
                     <div class="  flex justify-between">
                         <div>
                             <p class="text-sm font-medium">Cleaning</p>
-                            <p class="text-3xl font-bold">Double Belt</p>
+                            <p class="lg:text-3xl text-xl font-bold">Double Belt</p>
                         </div>
                         <div class="text-right">
                             <p class="font-bold text-lg">2 h</p>
                         </div>
                     </div>
                 </div>
-                <div class="p-4">
-                    <div class=" text-blue-950 flex justify-between mb-2">
+                <div class="p-4 bg-white rounded-b-lg">
+                    <div class=" text-[#0F1C40] flex justify-between mb-2">
                         <div>
                             <p class="text-sm font-bold">Appointment</p>
                             <p class="md:text-2xl ">Mar 01, 2024</p>
@@ -918,37 +955,40 @@
                         </div>
                     </div>
 
-                    <div class="flex justify-between items-center border-t pt-4 mt-4">
-                        <div class="flex items-center space-x-2">
-                            <div class="bg-[#0F1C40] text-white rounded-full p-2">
-                                <!-- Person icon (user icon) -->
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                                    class="size-6">
-                                    <path fill-rule="evenodd"
-                                        d="M18.685 19.097A9.723 9.723 0 0 0 21.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 0 0 3.065 7.097A9.716 9.716 0 0 0 12 21.75a9.716 9.716 0 0 0 6.685-2.653Zm-12.54-1.285A7.486 7.486 0 0 1 12 15a7.486 7.486 0 0 1 5.855 2.812A8.224 8.224 0 0 1 12 20.25a8.224 8.224 0 0 1-5.855-2.438ZM15.75 9a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"
-                                        clip-rule="evenodd" />
-                                </svg>
-
+                    <div class="lg:flex justify-between items-center border-t pt-4 mt-4">
+                        <div class="flex">
+                            <div class="flex items-center space-x-2">
+                                <div class="text-[#0F1C40]rounded-full p-2">
+                                    <!-- Person icon (user icon) -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-8">
+                                        <path fill-rule="evenodd"
+                                            d="M18.685 19.097A9.723 9.723 0 0 0 21.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 0 0 3.065 7.097A9.716 9.716 0 0 0 12 21.75a9.716 9.716 0 0 0 6.685-2.653Zm-12.54-1.285A7.486 7.486 0 0 1 12 15a7.486 7.486 0 0 1 5.855 2.812A8.224 8.224 0 0 1 12 20.25a8.224 8.224 0 0 1-5.855-2.438ZM15.75 9a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                    
+                                </div>
+                                <p class="text-sm font-bold">John Doe</p>
                             </div>
-                            <p class="text-sm font-bold">John Doe</p>
-                        </div>
-                        <div class="flex items-center space-x-2">
-                            <div class="text-blue-950 bg-white rounded-full p-2">
-                                <!-- Location icon (pin icon) -->
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                                    class="size-6">
-                                    <path fill-rule="evenodd"
-                                        d="m11.54 22.351.07.04.028.016a.76.76 0 0 0 .723 0l.028-.015.071-.041a16.975 16.975 0 0 0 1.144-.742 19.58 19.58 0 0 0 2.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 0 0-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 0 0 2.682 2.282 16.975 16.975 0 0 0 1.145.742ZM12 13.5a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"
-                                        clip-rule="evenodd" />
-                                </svg>
-
+                            <div class="flex items-center space-x-2">
+                                <div class="text-[#0F1C40] bg-white rounded-full p-2">
+                                    <!-- Location icon (pin icon) -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                                        <path fill-rule="evenodd"
+                                            d="m11.54 22.351.07.04.028.016a.76.76 0 0 0 .723 0l.028-.015.071-.041a16.975 16.975 0 0 0 1.144-.742 19.58 19.58 0 0 0 2.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 0 0-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 0 0 2.682 2.282 16.975 16.975 0 0 0 1.145.742ZM12 13.5a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                    
+                                </div>
+                                <p class="text-sm font-bold">Location</p>
                             </div>
-                            <p class="text-sm font-bold">Location</p>
                         </div>
-                        <button
-                            class="bg-white border-2 border-blue-950 text-blue-950 rounded-lg px-6 py-2 text-sm font-bold hover:bg-gray-100">
-                            Details
-                        </button>
+                        <div class="sm:mt-2  text-center">
+                            <button
+                                class="bg-white border-2 border-blue-950 text-[#0F1C40] rounded-lg px-4 py-1 text-sm font-bold hover:bg-gray-100">
+                                Details
+                            </button>
+                        
+                        </div>
                     </div>
                 </div>
             </div>
@@ -958,15 +998,15 @@
                     <div class="  flex justify-between">
                         <div>
                             <p class="text-sm font-medium">Full Service</p>
-                            <p class="text-3xl font-bold">Supercooling System</p>
+                            <p class="lg:text-3xl text-lg font-bold">Supercooling System</p>
                         </div>
                         <div class="text-right">
                             <p class="font-bold text-lg">30 h</p>
                         </div>
                     </div>
                 </div>
-                <div class="p-4">
-                    <div class=" text-blue-950 flex justify-between mb-2">
+                <div class="p-4 bg-white rounded-b-lg">
+                    <div class=" text-[#0F1C40] flex justify-between mb-2">
                         <div>
                             <p class="text-sm font-bold">Appointment</p>
                             <p class="md:text-2xl ">Feb 28, 2024</p>
@@ -977,12 +1017,13 @@
                         </div>
                     </div>
 
-                    <div class="flex justify-between items-center border-t pt-4 mt-4">
+                    <div class="lg:flex justify-between items-center border-t pt-4 mt-4">
+                        <div class="flex">
                         <div class="flex items-center space-x-2">
-                            <div class="bg-[#0F1C40] text-white rounded-full p-2">
+                            <div class=" text-[#0F1C40] rounded-full p-2">
                                 <!-- Person icon (user icon) -->
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
-                                    class="size-6">
+                                    class="size-8">
                                     <path fill-rule="evenodd"
                                         d="M18.685 19.097A9.723 9.723 0 0 0 21.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 0 0 3.065 7.097A9.716 9.716 0 0 0 12 21.75a9.716 9.716 0 0 0 6.685-2.653Zm-12.54-1.285A7.486 7.486 0 0 1 12 15a7.486 7.486 0 0 1 5.855 2.812A8.224 8.224 0 0 1 12 20.25a8.224 8.224 0 0 1-5.855-2.438ZM15.75 9a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"
                                         clip-rule="evenodd" />
@@ -1004,14 +1045,18 @@
                             </div>
                             <p class="text-sm font-bold">Location</p>
                         </div>
+                        </div>
+                        <div class="sm:mt-2  text-center">
                         <button
-                            class="bg-white border-2 border-blue-950 text-blue-950 rounded-lg px-4 py-1 text-sm font-bold hover:bg-gray-100">
+                            class="bg-white border-2 border-blue-950 text-[#0F1C40] rounded-lg px-4 py-1 text-sm font-bold hover:bg-gray-100">
                             Details
                         </button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
     </div>
     </div>
